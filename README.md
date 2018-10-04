@@ -1,1 +1,1 @@
-# CSCI-4100-Project
+# CSCI 4100 Project
