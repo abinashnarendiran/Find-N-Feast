@@ -7,4 +7,11 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="password_confirm">Confirm Password</string>
+    <string name="info">Information About App</string>
+    <string name="info_txt">This app is a restaurant locator that will find restaurant based on your current location and
+        favourite food. You can search for food in different locations and give and look for reviews for any restaurant
+    </string>
+    <string name="Names">By:\nAbinash Narendiran\nSaijeeshan Ketheeswaran</string>
+    <string name="Copyright">"Copyright @ Abinash_Saijeeshan"</string>
+    <string name="info_back">Back</string>
 </resources>
