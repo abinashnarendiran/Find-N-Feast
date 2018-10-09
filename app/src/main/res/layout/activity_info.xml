@@ -5,48 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InfoActivity"
+    android:background="@drawable/info_background"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/info"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:layout_marginTop="10dp"
         android:text="@string/info"
-        android:textSize="16dp"
-        android:textColor="@color/textColor"/>
+        android:textColor="@color/textColor2"
+        android:textSize="16dp" />
 
 
     <TextView
         android:id="@+id/info_txt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="58dp"
         android:text="@string/info_txt"
-        android:layout_marginLeft="25dp"
-        android:textSize="16dp"
-        android:textColor="@color/textColor"/>
+        android:textColor="@color/textColor2"
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/Names"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Names"
-        android:layout_marginTop="60dp"
-        android:textSize="16dp"
         android:layout_marginLeft="25dp"
-        android:textColor="@color/textColor"/>
+        android:layout_marginTop="60dp"
+        android:text="@string/Names"
+        android:textColor="@color/textColor2"
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/Copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Copyright"
-        android:layout_marginTop="60dp"
-        android:textSize="16dp"
         android:layout_marginLeft="25dp"
-        android:textColor="@color/textColor"/>
+        android:layout_marginTop="60dp"
+        android:text="@string/Copyright"
+        android:textColor="@color/textColor2"
+        android:textSize="16dp" />
 
 
     <Button

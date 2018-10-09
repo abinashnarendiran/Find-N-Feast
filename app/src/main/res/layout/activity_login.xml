@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/login_background"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@drawable/login_background"
     tools:context=".LoginActivity">
-
 
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
         android:layout_marginRight="150dp"
+        android:layout_marginTop="200dp"
         android:text="@string/email"
         android:textColor="@color/textColor"
         android:textSize="18sp"
@@ -26,21 +25,21 @@
         android:id="@+id/username_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
         android:ems="12"
         android:inputType="textPersonName"
-        android:textStyle="bold"
-        android:textColor="@color/textColor"/>
+        android:textColor="@color/textColor"
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-
         android:layout_marginRight="130dp"
+
+        android:layout_marginTop="20dp"
         android:text="@string/password"
         android:textColor="@color/textColor"
         android:textSize="18sp"
@@ -51,12 +50,12 @@
         android:id="@+id/password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
         android:ems="12"
         android:inputType="textPassword"
-        android:textStyle="bold"
-        android:textColor="@color/textColor"/>
+        android:textColor="@color/textColor"
+        android:textStyle="bold" />
 
 
     <Button
@@ -76,9 +75,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:background="@color/button_color"
+        android:onClick="signup"
         android:text="@string/signup_button"
-        android:textColor="@android:color/background_light"
-        android:onClick="signup"/>
+        android:textColor="@android:color/background_light" />
 
 
     <ImageButton
@@ -90,12 +89,11 @@
         android:layout_marginTop="30dp"
         android:adjustViewBounds="true"
         android:background="@null"
-        android:maxWidth="50dp"
         android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:onClick="getInfo"
         android:scaleType="fitCenter"
-        android:src="@drawable/infobutton"
-        android:onClick="getInfo"/>
-
+        android:src="@drawable/infobutton" />
 
 
 </LinearLayout>

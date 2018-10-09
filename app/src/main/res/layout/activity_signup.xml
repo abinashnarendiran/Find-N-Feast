@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@drawable/signup_background"
-    tools:context=".LoginActivity">
+    tools:context=".SignUpActivity">
 
 
 
@@ -15,7 +15,7 @@
         android:id="@+id/first_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="130dp"
         android:text="@string/first_name"
         android:textColor="@color/textColor"
@@ -120,12 +120,11 @@
         android:id="@+id/signupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="getNext"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:background="@color/button_color"
-        android:text="@string/signup_button"
+        android:text="@string/next_button"
         android:textColor="@android:color/background_light" />
-
-
-
 
 </LinearLayout>

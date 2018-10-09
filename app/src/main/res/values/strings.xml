@@ -4,14 +4,30 @@
     <string name="password">Password</string>
     <string name="login_button">Login</string>
     <string name="signup_button">Sign Up</string>
+    <string name="next_button">Next</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="password_confirm">Confirm Password</string>
     <string name="info">Information About App</string>
-    <string name="info_txt">This app is a restaurant locator that will find restaurant based on your current location and
+    <string name="info_txt">This app is a restaurant locator that will find restaurants based on your current location and
         favourite food. You can search for food in different locations and give and look for reviews for any restaurant
     </string>
-    <string name="Names">By:\nAbinash Narendiran\nSaijeeshan Ketheeswaran</string>
+    <string name="Names">By:\n\nAbinash Narendiran\nSaijeeshan Ketheeswaran</string>
     <string name="Copyright">"Copyright @ Abinash_Saijeeshan"</string>
     <string name="info_back">Back</string>
+    <string name="ques_1">What is your favorite meal of the day?</string>
+    <string name="ques_2">What is your usual price range when eating at a restaurant?</string>
+    <string name="ques_3">Choose from the list below:</string>
+    <string name="option_1">Breakfast</string>
+    <string name="option_2">Lunch</string>
+    <string name="option_3">Dinner</string>
+    <string name="option_4">1-10 $</string>
+    <string name="option_5">11-20 $$</string>
+    <string name="option_6">21-30 $$$</string>
+    <string name="option_7">31+ $$$$</string>
+    <string name="option_8">Italian</string>
+    <string name="option_9">Chinese</string>
+    <string name="option_10">Thai</string>
+    <string name="option_11">Mexican</string>
+    <string name="option_12">Japanese</string>
 </resources>
