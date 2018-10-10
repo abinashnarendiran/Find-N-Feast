@@ -171,6 +171,7 @@
         android:layout_centerHorizontal="true"
         android:background="@color/button_color"
         android:text="@string/signup_button"
+        android:onClick="signup"
         android:textColor="@android:color/background_light" />
 
 </LinearLayout>

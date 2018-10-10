@@ -17,7 +17,7 @@
     <string name="info_back">Back</string>
     <string name="ques_1">What is your favorite meal of the day?</string>
     <string name="ques_2">What is your usual price range when eating at a restaurant?</string>
-    <string name="ques_3">Choose from the list below:</string>
+    <string name="ques_3">What is favourite type of food?</string>
     <string name="option_1">Breakfast</string>
     <string name="option_2">Lunch</string>
     <string name="option_3">Dinner</string>
@@ -29,5 +29,5 @@
     <string name="option_9">Chinese</string>
     <string name="option_10">Thai</string>
     <string name="option_11">Mexican</string>
-    <string name="option_12">Japanese</string>
+    <string name="option_12">Other</string>
 </resources>
