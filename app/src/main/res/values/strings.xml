@@ -30,4 +30,11 @@
     <string name="option_10">Thai</string>
     <string name="option_11">Mexican</string>
     <string name="option_12">Other</string>
+    <string name= "search">Search</string>
+    <string name= "nearby">Nearby</string>
+    <string name= "review">Review</string>
+    <string name= "reservations">Reservations</string>
+    <string name= "chat">Chat</string>
+    <string name= "account">Account</string>
+    <string name= "logout">Logout</string>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/search" android:title="@string/search"/>
+    <item android:id="@+id/nearby" android:title="@string/nearby"/>
+    <item android:id="@+id/review" android:title="@string/review"/>
+    <item android:id="@+id/reservations" android:title="@string/reservations"/>
+    <item android:id="@+id/chat" android:title="@string/chat"/>
+    <item android:id="@+id/account" android:title="@string/account"/>
+    <item android:id="@+id/logout" android:title="@string/logout"/>
+</menu>
