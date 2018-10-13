@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Project</string>
+    <string name="app_name">CSCI 4100 Project</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login_button">Login</string>

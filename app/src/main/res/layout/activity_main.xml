@@ -19,6 +19,7 @@
             android:background="@color/colorPrimary"
             android:id="@+id/toolbar">
 
+
         </android.support.v7.widget.Toolbar>
 
     </LinearLayout>
