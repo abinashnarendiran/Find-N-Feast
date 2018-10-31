@@ -20,7 +20,8 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".UserQuesActivity" />
-
+        <activity android:name=".NearbyActivity" />
+        <activity android:name=".SearchActivity" />
     </application>
 
 </manifest>

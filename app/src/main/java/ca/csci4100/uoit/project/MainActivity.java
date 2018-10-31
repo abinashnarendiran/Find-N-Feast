@@ -11,11 +11,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle mToggle;
@@ -30,51 +32,49 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         setUpToolbar();
 
-        // load at application start up
-        fragmentTransaction= getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.main_container,new NearbyFragment());
-        fragmentTransaction.commit();
+        /*
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.app_name,R.string.app_name);
+        drawerLayout.addDrawerListener(mToggle);
+        */
         navigationView= (NavigationView) findViewById(R.id.navigationView);
 
-
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_container,
-                    new NearbyFragment()).commit();
             navigationView.setCheckedItem(R.id.nearby);
         }
-        navigationView.setNavigationItemSelectedListener(this);
-    }
 
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+    }
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.nearby:
-                fragmentTransaction=getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.main_container,new NearbyFragment());
-                fragmentTransaction.commit();
+                Intent nearbyIntent = new Intent(getApplicationContext(), NearbyActivity.class);
+                startActivity(nearbyIntent);
                 break;
 
-            case R.id.search:
-                fragmentTransaction=getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.main_container,new SearchFragment());
-                fragmentTransaction.commit();
-                break;
+                case R.id.search:
+                    Intent searchIntent = new Intent(getApplicationContext(), SearchActivity.class);
+                    startActivity(searchIntent);
+                    break;
 
-            case R.id.logout:
-                Intent getLoggoutIntent = new Intent(
-                        MainActivity.this,
-                        LoginActivity.class
-                );
-                startActivity(getLoggoutIntent);
+                    case R.id.logout:
+                        Intent getLoggoutIntent = new Intent(
+                                MainActivity.this,
+                                LoginActivity.class);
+                        startActivity(getLoggoutIntent);
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
 
+
     }
-
-
 
     private void setUpToolbar() {
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
     }
+
+
+
+
 
     @Override
     public void onBackPressed() {
