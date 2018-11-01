@@ -14,10 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity /* implements NavigationView.OnNavigationItemSelectedListener*/ {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle mToggle;
@@ -43,38 +44,42 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         navigationView= (NavigationView) findViewById(R.id.navigationView);
 
         if (savedInstanceState == null) {
-            navigationView.setCheckedItem(R.id.nearby);
+            //navigationView.setCheckedItem(R.id.nearby);
         }
 
-        navigationView.setNavigationItemSelectedListener(this);
-
-
+        //navigationView.setNavigationItemSelectedListener(this);
     }
-    @Override
+
+
+    public void search(View view) {
+        Intent searchIntent = new Intent(
+                MainActivity.this,
+                SearchActivity.class
+        );
+        startActivity(searchIntent);
+    }
+
+    public void nearby(View view) {
+        Intent nearbyIntent = new Intent(
+                MainActivity.this,
+                NearbyActivity.class
+        );
+        startActivity(nearbyIntent);
+    }
+
+    public void logout(View view) {
+        Intent logoutIntent = new Intent(
+                MainActivity.this,
+                LoginActivity.class
+        );
+        startActivity(logoutIntent);
+    }
+
+    /*@Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.nearby:
-                Intent nearbyIntent = new Intent(getApplicationContext(), NearbyActivity.class);
-                startActivity(nearbyIntent);
-                break;
-
-                case R.id.search:
-                    Intent searchIntent = new Intent(getApplicationContext(), SearchActivity.class);
-                    startActivity(searchIntent);
-                    break;
-
-                    case R.id.logout:
-                        Intent getLoggoutIntent = new Intent(
-                                MainActivity.this,
-                                LoginActivity.class);
-                        startActivity(getLoggoutIntent);
-        }
-
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-
-
-    }
+    }*/
 
     private void setUpToolbar() {
         drawerLayout = findViewById(R.id.drawerLayout);

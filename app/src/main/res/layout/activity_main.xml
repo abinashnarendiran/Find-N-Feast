@@ -9,6 +9,7 @@
     tools:context=".MainActivity"
     android:id = "@+id/drawerLayout">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:background="@drawable/questions_background">
@@ -29,6 +30,61 @@
         android:layout_height="match_parent"
         android:id="@+id/main_container">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/search_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:text="@string/search"
+                    android:drawableLeft="@drawable/search_icon"
+                    android:onClick="search"/>
+
+                <Button
+                    android:id="@+id/nearby_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:text="@string/nearby"
+                    android:drawableLeft="@drawable/nearby_icon"
+                    android:onClick="nearby"/>
+
+                <Button
+                    android:id="@+id/review_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:text="@string/review"
+                    android:drawableLeft="@drawable/review_icon"/>
+
+                <Button
+                    android:id="@+id/chat_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:text="@string/chat"
+                    android:drawableLeft="@drawable/chat_icon"/>
+
+                <Button
+                    android:id="@+id/account_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:text="@string/account"
+                    android:drawableLeft="@drawable/account_icon"/>
+
+                <Button
+                    android:id="@+id/logout_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:text="@string/logout"
+                    android:drawableLeft="@drawable/logout_icon"/>
+            </LinearLayout>
+        </ScrollView>
     </FrameLayout>
 
     <android.support.design.widget.NavigationView

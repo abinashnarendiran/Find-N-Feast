@@ -20,5 +20,4 @@ public class NearbyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nearby);
 
     }
-
 }
