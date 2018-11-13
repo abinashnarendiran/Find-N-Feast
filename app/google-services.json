@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "726468603517",
+    "firebase_url": "https://csci4100app.firebaseio.com",
+    "project_id": "csci4100app",
+    "storage_bucket": "csci4100app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726468603517:android:fbf1639a59cef30e",
+        "android_client_info": {
+          "package_name": "ca.csci4100.uoit.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726468603517-ti4id4o3i5g7p0lvkbaf0lvhmivj7j1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB02nfGu6G2uTWASbRQEktd3jGYSSbXpA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
