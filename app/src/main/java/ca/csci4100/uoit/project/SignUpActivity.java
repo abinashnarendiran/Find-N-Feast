@@ -1,10 +1,13 @@
 package ca.csci4100.uoit.project;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import java.util.ArrayList;
 
 public class SignUpActivity extends AppCompatActivity {
     @Override
@@ -18,7 +21,7 @@ public class SignUpActivity extends AppCompatActivity {
                 SignUpActivity.this,
                 UserQuesActivity.class
         );
-        startActivity(getNextIntent);
+        startActivityForResult(getNextIntent,1);
 
         /*
         EditText first_name = (EditText) findViewById(R.id.first_name_input);
@@ -59,7 +62,26 @@ public class SignUpActivity extends AppCompatActivity {
         */
 
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode==1){
+            if(resultCode==Activity.RESULT_OK){
+                System.out.println("user info returned");
+                Bundle b =data.getExtras();
+                String fMeal=b.getString("favouriteMeal");
+                String pRange=b.getString("priceRange");
+                ArrayList<String> foodList=new ArrayList<>(b.getStringArrayList("foodList"));
+                System.out.println(fMeal);
+                System.out.println(pRange);
+                for(int x=0;x<foodList.size();x++){
+                    System.out.println(foodList.get(x));
+                }
+            }
+        }
 
+        //todo save name and info
+        //finish()
+    }
 
 
 }

@@ -16,7 +16,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity /* implements NavigationView.OnNavigationItemSelectedListener*/ {
 
@@ -25,14 +28,16 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
     Toolbar toolbar;
     public static int GET_LOGIN_INTENT = 1;
     NavigationView navigationView;
-    FragmentTransaction fragmentTransaction;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUpToolbar();
-
+        this.user=(FirebaseUser) getIntent().getExtras().get("user");
+        System.out.println(user.getEmail()+" logged in");
+        ((TextView)findViewById(R.id.mainUserNameDisplay)).setText(user.getEmail());
         /*
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

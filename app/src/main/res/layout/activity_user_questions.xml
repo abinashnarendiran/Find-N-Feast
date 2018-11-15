@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@drawable/questions_background"
-    tools:context=".LoginActivity">
+    tools:context=".UserQuesActivity">
 
 
     <TextView
@@ -21,6 +21,7 @@
         android:textStyle="bold" />
 
     <RadioGroup
+        android:id="@+id/mealList"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
@@ -63,6 +64,7 @@
         android:textStyle="bold" />
 
     <RadioGroup
+        android:id="@+id/priceList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -113,9 +115,11 @@
         android:textColor="@color/textColor"
         android:textStyle="bold" />
 
-    <RadioGroup
+    <LinearLayout
+        android:id="@+id/favouriteList"
         android:layout_width="match_parent"
-        android:layout_height="131dp">
+        android:layout_height="131dp"
+        android:orientation="vertical">
 
         <CheckBox
             android:id="@+id/checkBox2"
@@ -161,7 +165,7 @@
             android:text="@string/option_12"
             android:textStyle="bold"
             android:textColor="@color/textColor" />
-    </RadioGroup>
+    </LinearLayout>
 
     <Button
         android:id="@+id/signupButton"
@@ -171,7 +175,7 @@
         android:layout_centerHorizontal="true"
         android:background="@color/button_color"
         android:text="@string/signup_button"
-        android:onClick="signup"
+        android:onClick="signUp"
         android:textColor="@android:color/background_light" />
 
 </LinearLayout>
