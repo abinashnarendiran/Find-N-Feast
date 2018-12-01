@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -39,25 +40,32 @@ public class UserQuesActivity extends AppCompatActivity {
                 i.putExtra("minPrice", pMin);
                 i.putExtra("maxPrice", pMax);
                 ArrayList<String> typeList = new ArrayList<>();
+                System.out.println(((LinearLayout) findViewById(R.id.favouriteList)).getChildCount());
+                //System.out.println(((CheckBox) ((LinearLayout)((LinearLayout) findViewById(R.id.favouriteList)).getChildAt(4)).getChildAt(0)).isChecked());
+                //System.out.println(((CheckBox)findViewById(R.id.checkBox6)).isChecked());
+                //System.out.println(R.id.checkBox6);
+                //System.out.println(((CheckBox)findViewById(R.id.checkBox6)).getText());
                 int listSize = ((LinearLayout) findViewById(R.id.favouriteList)).getChildCount();
+
                 for (int x = 0; x < listSize; x++) {
-                    if (((CheckBox) ((LinearLayout) findViewById(R.id.favouriteList)).getChildAt(x)).isChecked()) {
-                        String item = ((CheckBox) ((LinearLayout) findViewById(R.id.favouriteList)).getChildAt(x)).getText().toString();
-                        if (item.equals("Other")) {
-                            String custom = "Other";
-                            //todo add new activity for custom entry
-                            typeList.add(custom);
-                        } else {
-                            //System.out.println(item);
+                    if(x==(listSize-1)){
+                        if (((CheckBox)findViewById(R.id.checkBox6)).isChecked()){
+                            String item = ((EditText)findViewById(R.id.optionEdit)).getText().toString();
                             typeList.add(item);
                         }
                     }
+                    else if (((CheckBox) ((LinearLayout) findViewById(R.id.favouriteList)).getChildAt(x)).isChecked()) {
+                        String item = ((CheckBox) ((LinearLayout) findViewById(R.id.favouriteList)).getChildAt(x)).getText().toString();
+                        typeList.add(item);
+                    }
                 }
+                System.out.println("finished");
                 i.putExtra("foodList", typeList);
                 setResult(Activity.RESULT_OK, i);
                 finish();
             }
             catch(Exception e){
+                System.out.println("input: "+e);
                 Toast.makeText(this, "invalid input: "+e, Toast.LENGTH_SHORT);
             }
         }

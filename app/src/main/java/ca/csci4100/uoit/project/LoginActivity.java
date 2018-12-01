@@ -1,13 +1,14 @@
 package ca.csci4100.uoit.project;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.NonNull;
+import android.content.Context;
+import android.widget.EditText;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.content.Intent;
+import android.content.Intent;
+import android.app.Activity;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;

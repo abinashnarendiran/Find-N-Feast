@@ -15,10 +15,11 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public void backInfo(View view) {
-        Intent backInfoIntent = new Intent(
+        /*Intent backInfoIntent = new Intent(
                 InfoActivity.this,
                 LoginActivity.class
         );
-        startActivity(backInfoIntent);
+        startActivity(backInfoIntent);*/
+        finish();
     }
 }

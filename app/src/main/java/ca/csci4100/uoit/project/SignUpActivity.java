@@ -1,18 +1,23 @@
 package ca.csci4100.uoit.project;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class SignUpActivity extends AppCompatActivity {
+    private String m_Text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,12 +104,17 @@ public class SignUpActivity extends AppCompatActivity {
                     outputStream.write((pMax+"").getBytes());
                     outputStream.write("\n".getBytes());
 
+                    outputStream.write((foodList.size()+"").getBytes());
+                    outputStream.write("\n".getBytes());
+
                     for(int x=0;x<foodList.size();x++){
                         outputStream.write(foodList.get(x).getBytes());
+                        outputStream.write("\n".getBytes());
                     }
 
                     outputStream.close();
                 } catch (Exception e) {
+                    System.out.println(e);
                     e.printStackTrace();
                 }
 

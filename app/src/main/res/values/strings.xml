@@ -21,10 +21,10 @@
     <string name="option_1">Breakfast</string>
     <string name="option_2">Lunch</string>
     <string name="option_3">Dinner</string>
-    <string name="option_4">1-10 $</string>
+<!--    <string name="option_4">1-10 $</string>
     <string name="option_5">11-20 $$</string>
     <string name="option_6">21-30 $$$</string>
-    <string name="option_7">31+ $$$$</string>
+    <string name="option_7">31+ $$$$</string>-->
     <string name="option_8">Italian</string>
     <string name="option_9">Chinese</string>
     <string name="option_10">Thai</string>
@@ -40,4 +40,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="address">address</string>
+    <string name="nothing" />
 </resources>
