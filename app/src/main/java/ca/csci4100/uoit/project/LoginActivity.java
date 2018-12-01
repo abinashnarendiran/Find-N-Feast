@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.FileOutputStream;
+
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     public Context context;
@@ -117,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode==SIGN_IN_VALUE){
             if(resultCode==Activity.RESULT_OK){
-                //todo interpret data
+                login(null);
             }
         }
     }

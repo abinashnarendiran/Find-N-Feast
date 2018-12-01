@@ -1,12 +1,15 @@
 package ca.csci4100.uoit.project;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -69,18 +72,49 @@ public class SignUpActivity extends AppCompatActivity {
                 System.out.println("user info returned");
                 Bundle b =data.getExtras();
                 String fMeal=b.getString("favouriteMeal");
-                String pRange=b.getString("priceRange");
+                double pMin=b.getDouble("minPrice"), pMax=b.getDouble("maxPrice");
                 ArrayList<String> foodList=new ArrayList<>(b.getStringArrayList("foodList"));
                 System.out.println(fMeal);
-                System.out.println(pRange);
+                System.out.println(pMin+" - "+pMax);
                 for(int x=0;x<foodList.size();x++){
                     System.out.println(foodList.get(x));
                 }
+
+
+                //save name and preferences locally as text will change later TODO
+                String fileName = "data";
+                FileOutputStream outputStream;
+
+                try {
+                    outputStream = openFileOutput(fileName , Context.MODE_PRIVATE);
+
+                    outputStream.write(((EditText)findViewById(R.id.first_name_input)).getText().toString().getBytes());
+                    outputStream.write("\n".getBytes());
+                    outputStream.write(((EditText)findViewById(R.id.last_name_input)).getText().toString().getBytes());
+                    outputStream.write("\n".getBytes());
+                    outputStream.write(fMeal.getBytes());
+                    outputStream.write("\n".getBytes());
+                    outputStream.write((pMin+"").getBytes());
+                    outputStream.write("\n".getBytes());
+                    outputStream.write((pMax+"").getBytes());
+                    outputStream.write("\n".getBytes());
+
+                    for(int x=0;x<foodList.size();x++){
+                        outputStream.write(foodList.get(x).getBytes());
+                    }
+
+                    outputStream.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+                finish();
             }
         }
 
-        //todo save name and info
-        //finish()
+
+
     }
 
 

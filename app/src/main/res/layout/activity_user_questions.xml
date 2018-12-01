@@ -63,7 +63,17 @@
         android:textColor="@color/textColor"
         android:textStyle="bold" />
 
-    <RadioGroup
+    <EditText
+        android:hint="min price"
+        android:id="@+id/minPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:hint="max price"
+        android:id="@+id/maxPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--<RadioGroup
         android:id="@+id/priceList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -103,7 +113,7 @@
             android:text="@string/option_7"
             android:textColor="@color/textColor"
             android:textStyle="bold" />
-    </RadioGroup>
+    </RadioGroup>-->
 
     <TextView
         android:id="@+id/textView3"
