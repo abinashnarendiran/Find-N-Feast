@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
         try {
             BufferedReader br=new BufferedReader(new InputStreamReader(openFileInput("data")));
             while((line=br.readLine())!=null){
-                Toast.makeText(MainActivity.this, line, Toast.LENGTH_LONG).show();
-
+                //Toast.makeText(MainActivity.this, line, Toast.LENGTH_LONG).show();
+                System.out.println(line);
             }
-            //BufferedReader br = new BufferedReader(new FileReader(""));
+
         }
         catch (IOException e){
             Toast.makeText(MainActivity.this, e+"", Toast.LENGTH_LONG).show();
@@ -91,6 +91,11 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
                 MainActivity.this,
                 LoginActivity.class
         );
+        startActivity(logoutIntent);
+    }
+    public void review(View view) {
+        Intent logoutIntent = new Intent(MainActivity.this, reviewActivity.class);
+        logoutIntent.putExtra("email",user.getEmail());
         startActivity(logoutIntent);
     }
 

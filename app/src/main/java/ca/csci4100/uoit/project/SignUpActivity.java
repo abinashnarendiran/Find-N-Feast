@@ -17,7 +17,6 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class SignUpActivity extends AppCompatActivity {
-    private String m_Text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

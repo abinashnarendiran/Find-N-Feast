@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/questions_background"
+    tools:context=".reviewActivity">
+    <EditText
+        android:id="@+id/addressInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/address"/>
-
-    </LinearLayout>
+        android:hint="@string/address"/>
+    <EditText
+        android:id="@+id/descriptionInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="4"/>
+    <EditText
+        android:id="@+id/ratingInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/rating"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_review"
+        android:onClick="confirm"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:onClick="cancel"/>
 
 </LinearLayout>
