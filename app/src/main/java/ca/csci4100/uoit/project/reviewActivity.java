@@ -6,13 +6,21 @@ import android.widget.Toast;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class reviewActivity extends AppCompatActivity {
-    SqliteReviewHelper reviewHelper;
+    private SqliteReviewHelper reviewHelper;
+
+    private FirebaseDatabase mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +31,8 @@ public class reviewActivity extends AppCompatActivity {
         for (int x = 0; x < reviews.size(); x++) {
             System.out.println(reviews.get(x).toString());
         }
+        mDatabase=FirebaseDatabase.getInstance();
+
     }
     public void cancel (View v){
         finish();
@@ -30,7 +40,9 @@ public class reviewActivity extends AppCompatActivity {
     public void confirm(View v){
         //Toast.makeText(reviewActivity.this, "confirm", Toast.LENGTH_LONG).show();
         //database save
-        //todo
+
+
+
 
         //local save
         try {
@@ -43,11 +55,18 @@ public class reviewActivity extends AppCompatActivity {
 
             SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
             date = df.format(c);
-            reviewHelper.addReview(rating,address,date,description);
+
+            //push to both
+            DatabaseReference data = mDatabase.getReference("Reviews");
+
+            Review add = reviewHelper.addReview(rating,address,date,description);
+
+            data.push().setValue(add);
+            
             finish();
         }
         catch (Exception e){
-            System.err.println(e);
+            System.out.println(e);
         }
     }
 }
