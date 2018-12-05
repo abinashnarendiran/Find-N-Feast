@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
         startActivity(logoutIntent);
     }
 
+
+
     /*@Override
     public boolean onNavigationItemSelected(MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -123,7 +125,12 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //super.onBackPressed();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Toast.makeText(MainActivity.this, "You are logged out",Toast.LENGTH_SHORT).show();
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
         }
     }
 

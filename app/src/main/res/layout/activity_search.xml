@@ -1,18 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity">
+    android:orientation="vertical"
+    tools:context=".SearchActivity"
+    android:background="@color/colorPrimary">
 
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Search Fragment"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+        android:id="@+id/searchRestaurants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="@string/search_restaurant"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/textColor" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/address_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_address"
+        android:textSize="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/textColor" />
+
+
+    <EditText
+        android:id="@+id/address_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text=""
+        android:background="@drawable/search_bar"
+        android:hint="@string/formatted_address"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/textColor"/>
+
+    <TextView
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:textSize="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/textColor"/>
+
+
+
+
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:background="@drawable/search_bar"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="@color/textColor"/>
+
+
+    <TextView
+        android:id="@+id/lblSearch_radius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_radius"
+        android:textSize="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/textColor"/>
+
+
+    <EditText
+        android:id="@+id/search_radius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:background="@drawable/search_bar"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:hint="Max radius: 15 km"
+        android:inputType="numberDecimal"
+        android:textColor="@color/textColor"/>
+
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:text = "@string/price"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/textColor"/>
+
+
+
+    <Spinner
+        android:id="@+id/price_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/textColor"
+        android:padding="10dp"
+        android:background="@color/textColor2"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"/>
+
+
+    <Button
+        android:id="@+id/search_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/button_color"
+        android:textColor="@color/textColor2"
+        android:textSize="15dp"
+        android:layout_marginTop="30dp"
+        android:onClick="search_restaurants"/>
+</LinearLayout>
