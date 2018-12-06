@@ -87,11 +87,10 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
     }
 
     public void logout(View view) {
-        Intent logoutIntent = new Intent(
-                MainActivity.this,
-                LoginActivity.class
-        );
-        startActivity(logoutIntent);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        Toast.makeText(MainActivity.this, "You are logged out",Toast.LENGTH_SHORT).show();
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
     public void review(View view) {
         Intent logoutIntent = new Intent(MainActivity.this, reviewActivity.class);

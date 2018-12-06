@@ -88,6 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:text="@string/logout"
+                    android:onClick="logout"
                     android:drawableLeft="@drawable/logout_icon"/>
             </LinearLayout>
         </ScrollView>
