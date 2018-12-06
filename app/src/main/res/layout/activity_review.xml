@@ -9,30 +9,56 @@
     android:orientation="vertical"
     android:background="@drawable/questions_background"
     tools:context=".reviewActivity">
+
+
+    <TextView
+        android:id="@+id/reviews"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor2"
+        android:text="@string/review"
+        android:textSize="25dp"/>
+
+
     <EditText
         android:id="@+id/addressInput"
         android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/textColor2"
         android:hint="@string/address"/>
+
+
     <EditText
         android:id="@+id/descriptionInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="@string/description"
+        android:textColor="@color/textColor2"
         android:lines="4"/>
+
     <EditText
         android:id="@+id/ratingInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/textColor2"
         android:hint="@string/rating"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/confirm_review"
+        android:background="@color/button_color"
+        android:textColor="@color/textColor2"
+        android:layout_marginTop="40dp"
         android:onClick="confirm"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cancel"
+        android:layout_marginTop="20dp"
+        android:background="@color/button_color"
+        android:textColor="@color/textColor2"
         android:onClick="cancel"/>
 
 </LinearLayout>

@@ -18,7 +18,7 @@
         favourite food. You can search for food in different locations and give and look for reviews for any restaurant
     </string>
     <string name="Names">By:\n\nAbinash Narendiran\nSaijeeshan Ketheeswaran\nJoseph Robertson</string>
-    <string name="Copyright">"Copyright @ Abinash_Saijeeshan"</string>
+    <string name="Copyright">"Copyright @ Abinash_Saijeeshan_Joseph"</string>
     <string name="info_back">Back</string>
 
     <!--User Questions-->
@@ -38,7 +38,6 @@
     <!--Main Menu-->
     <string name="search">Search</string>
     <string name="nearby">Nearby</string>
-    <string name="review">Review</string>
     <string name="reservations">Reservations</string>
     <string name="chat">Chat</string>
     <string name="account">Account</string>
@@ -61,9 +60,10 @@
     <string name="formatted_address">"House Number" "Road Name", "City", "State or Province (Abbreviation)" "Postal Code"</string>
 
     <!--Review-->
-    <string name="address">address</string>
+    <string name="address">Address</string>
     <string name="nothing" />
-    <string name="rating">rating</string>
-    <string name="confirm_review">confirm review</string>
-    <string name="cancel">cancel</string>
+    <string name="review">Review</string>
+    <string name="rating">Rating</string>
+    <string name="confirm_review">Confirm Review</string>
+    <string name="cancel">Cancel</string>
 </resources>
