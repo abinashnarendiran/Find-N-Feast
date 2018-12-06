@@ -5,7 +5,7 @@
 1. Open git shell in a folder of your choosing
 2. Execute :
 
-         $ git clone
+         $ git clone https://github.com/abinashnarendiran/CSCI_4100_Project.git
          
 3. Open Android Studio
 4. Select File > New > Import Project
