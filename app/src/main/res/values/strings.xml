@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CSCI 4100 Project</string>
+    <string name="app_name">Find "N" Feast</string>
 
     <!--Login and Signup-->
     <string name="email">Email</string>
