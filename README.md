@@ -1,5 +1,4 @@
-# CSCI 4100 Project
-
+# Find 'N' Feast App
 
 ## How to start?
 1. Open git shell in a folder of your choosing
