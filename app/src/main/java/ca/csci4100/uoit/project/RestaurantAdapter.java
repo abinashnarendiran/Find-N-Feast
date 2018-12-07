@@ -78,7 +78,7 @@ public class RestaurantAdapter extends BaseAdapter {
         lblPhone_number.setText(RestaurantToDisplay.getPhone_number());
 
         TextView lblRating = (TextView)convertView.findViewById(R.id.lblRating);
-        lblRating.setText(RestaurantToDisplay.getType());
+        lblRating.setText(RestaurantToDisplay.getRating());
 
         TextView lblHours = (TextView)convertView.findViewById(R.id.lblHours);
         lblHours.setText(RestaurantToDisplay.getHours());
