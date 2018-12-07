@@ -57,7 +57,7 @@
     <string name="search_restaurant">Restaurant Search</string>
     <string name="search_radius">Radius</string>
     <string name="search_address">Address</string>
-    <string name="formatted_address">"House Number" "Road Name", "City", "State or Province (Abbreviation)" "Postal Code"</string>
+    <string name="formatted_address">"House Number" "Road Name(No Abbreviation)", "City", "State or Province (Abbreviation)" "Postal Code"</string>
 
     <!--Review-->
     <string name="address">Address</string>
