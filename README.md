@@ -1,7 +1,7 @@
 # Find 'N' Feast App
 
 ## How to start?
-1. Open git shell in any location you want on your device
+1. Open git shell in any folder location you want on your device
 2. Execute :
 
          $ git clone https://github.com/abinashnarendiran/CSCI_4100_Project.git
