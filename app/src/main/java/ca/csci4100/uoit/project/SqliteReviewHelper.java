@@ -101,4 +101,24 @@ public class SqliteReviewHelper extends SQLiteOpenHelper {
         Review review = new Review(rating,address,date,description);
         return review;
     }
+    public String getAverageRating(String address){
+        System.out.println(address);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{COLUMN_REVIEW_RATING}, COLUMN_REVIEW_ADDRESS+"=\""+address+"\"", null, null, null, null);
+
+        cursor.moveToFirst();
+        double total=0,count=0;
+
+        while (!cursor.isAfterLast()) {
+            System.out.println(cursor.getString(0));
+            cursor.moveToNext();
+            count++;
+            total+=Double.parseDouble(cursor.getString(0));
+        }
+        if(count>0){
+            System.out.println(address+"\t"+total/count);
+            return (total/count)+"";
+        }
+        return "No Rating";
+    }
 }

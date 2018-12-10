@@ -32,24 +32,34 @@ public class reviewActivity extends AppCompatActivity {
             System.out.println(reviews.get(x).toString());
         }
         mDatabase=FirebaseDatabase.getInstance();
-
+        try {
+            ((EditText)findViewById(R.id.addressInput)).setText(getIntent().getStringExtra("address"));
+        }
+        catch (Exception e){
+            //not passed in
+        }
     }
     public void cancel (View v){
         finish();
     }
     public void confirm(View v){
-        //Toast.makeText(reviewActivity.this, "confirm", Toast.LENGTH_LONG).show();
-        //database save
-
-
-
-
-        //local save
+        //database save and local save
         try {
             float rating = (float) Double.parseDouble(((EditText) findViewById(R.id.ratingInput)).getText().toString());
+            if(rating<0.0 || rating>5.0){
+                Toast.makeText(reviewActivity.this, "please rate from 0-5", Toast.LENGTH_SHORT).show();
+                return;
+            }
             String address = ((EditText) findViewById(R.id.addressInput)).getText().toString();
-            String date = "";
             String description = ((EditText) findViewById(R.id.descriptionInput)).getText().toString();
+
+            String date = "";
+
+            if(address.equals("") || description.equals("")){
+                Toast.makeText(reviewActivity.this, "please fill all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
 
             Date c = Calendar.getInstance().getTime();
 
@@ -62,7 +72,7 @@ public class reviewActivity extends AppCompatActivity {
             Review add = reviewHelper.addReview(rating,address,date,description);
 
             data.push().setValue(add);
-            
+
             finish();
         }
         catch (Exception e){

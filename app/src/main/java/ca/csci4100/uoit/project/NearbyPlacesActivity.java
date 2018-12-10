@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -20,7 +21,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.textclassifier.TextLinks;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -46,6 +50,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 
 public class NearbyPlacesActivity extends AppCompatActivity{
@@ -61,6 +66,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
     String price_range;
     String phone_number;
     String rating;
+    String sqlRating;
     String website;
     String image;
     String spinner_price;
@@ -91,6 +97,17 @@ public class NearbyPlacesActivity extends AppCompatActivity{
 
 
 
+    public void rate(View v){
+        Intent i = new Intent(this,reviewActivity.class);
+
+        String address="";
+        ViewGroup parent =(ViewGroup)v.getParent();
+        //System.out.println(((TextView)((LinearLayout)parent.getChildAt(1)).getChildAt(0)).getText());
+
+
+        i.putExtra("address",address);
+        this.startActivity(i);
+    }
 
     public void showRestaurants(ArrayList<Restaurant> data) {
         Log.d("Show","Show");
@@ -120,6 +137,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
 
 
             try {
+                SqliteReviewHelper reviewHelper= new SqliteReviewHelper(NearbyPlacesActivity.this);
                 Intent intent = getIntent();
                 spinner_price = intent.getStringExtra("price");
                 URL url = new URL(params[0]);
@@ -177,6 +195,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                     String[] hours_array = hours_list.split("\\s*,\\s*");
                                     String hours1 = "";
 
+                                    sqlRating=reviewHelper.getAverageRating(address);
 
 
                                     for(int j = 0; j < hours_array.length; j++){
@@ -187,7 +206,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                     distanceInKm = distance / 1000;
 
                                     Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description, type,
-                                            price_range, phone_number, rating, hours1, website, image, distanceInKm,
+                                            price_range, phone_number, rating, sqlRating, hours1, website, image, distanceInKm,
                                             latitude2, longitude2);
 
                                     Log.d("Restaurant", String.valueOf(restaurant));
@@ -213,6 +232,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                         String[] hours_array = hours_list2.split("\\s*,\\s*");
                                         String hours2 = "";
 
+                                        sqlRating=reviewHelper.getAverageRating(address);
 
 
                                         for(int j = 0; j < hours_array.length; j++){
@@ -224,7 +244,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                         distanceInKm = distance / 1000;
 
                                         Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description, type,
-                                                price_range, phone_number, rating, hours2, website, image, distanceInKm,
+                                                price_range, phone_number, rating,sqlRating, hours2, website, image, distanceInKm,
                                                 latitude2, longitude2);
 
 

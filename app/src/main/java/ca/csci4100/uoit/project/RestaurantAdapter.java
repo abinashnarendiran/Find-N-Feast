@@ -80,6 +80,9 @@ public class RestaurantAdapter extends BaseAdapter {
         TextView lblRating = (TextView)convertView.findViewById(R.id.lblRating);
         lblRating.setText(RestaurantToDisplay.getRating());
 
+        TextView lblSqlRating = (TextView)convertView.findViewById(R.id.sqlRating);
+        lblSqlRating.setText(RestaurantToDisplay.getSqlRating());
+
         TextView lblHours = (TextView)convertView.findViewById(R.id.lblHours);
         lblHours.setText(RestaurantToDisplay.getHours());
 

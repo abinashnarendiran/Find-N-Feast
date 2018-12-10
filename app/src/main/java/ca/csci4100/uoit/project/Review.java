@@ -17,7 +17,7 @@ public class Review {
         this.rating=rating;
     }
     public String toString(){
-        return address+":\t"+description+"\n"+rating+"/10\n";
+        return address+":\t"+description+"\n"+rating+"/5\n";
     }
     @Exclude
     public Map<String, Object> toMap() {

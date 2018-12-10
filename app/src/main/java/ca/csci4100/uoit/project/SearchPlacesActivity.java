@@ -71,6 +71,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
     String price_range;
     String phone_number;
     String rating;
+    String sqlRating;
     String website;
     String image;
     float distance;
@@ -144,6 +145,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
         @Override
         protected ArrayList<Restaurant> doInBackground(String... params) {
             try {
+                SqliteReviewHelper reviewHelper= new SqliteReviewHelper(SearchPlacesActivity.this);
                 Intent intent = getIntent();
                 spinner_price = intent.getStringExtra("price");
                 URL url = new URL(params[0]);
@@ -226,6 +228,8 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                                             image = restaurant_details.getString("image");
                                             String hours1 = "";
 
+                                            sqlRating=reviewHelper.getAverageRating(address);
+
                                             String[] hours_array = restaurant_details.getString("hours").
                                                     split("\\s*,\\s*");
 
@@ -238,7 +242,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                                             distanceInKm = distance / 1000;
 
                                             Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description,
-                                                    type, price_range, phone_number, rating, hours1, website, image,
+                                                    type, price_range, phone_number, rating, sqlRating, hours1, website, image,
                                                     distanceInKm, latitude2, longitude2);
 
                                             Log.d("Add", String.valueOf(restaurant));
@@ -259,9 +263,12 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                                                 type = restaurant_details.getString("type");
                                                 phone_number = restaurant_details.getString("phone_number");
                                                 rating = restaurant_details.getString("rating");
+                                                rating = restaurant_details.getString("rating");
                                                 website = restaurant_details.getString("website");
                                                 image = restaurant_details.getString("image");
                                                 String hours2 = "";
+
+                                                sqlRating=reviewHelper.getAverageRating(address);
 
                                                 String[] hours_array = restaurant_details.getString("hours")
                                                         .split("\\s*,\\s*");
@@ -275,7 +282,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                                                 distanceInKm = distance / 1000;
 
                                                 Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description,
-                                                        type, price_range, phone_number, rating, hours2, website, image,
+                                                        type, price_range, phone_number, rating, sqlRating, hours2, website, image,
                                                         distanceInKm, latitude2, longitude2);
 
                                                 Log.d("Add", String.valueOf(restaurant));

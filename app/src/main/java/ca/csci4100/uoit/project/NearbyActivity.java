@@ -3,8 +3,11 @@ package ca.csci4100.uoit.project;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -17,14 +20,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
 
 public class NearbyActivity extends AppCompatActivity implements LocationListener {
     String[] arraySpinner = new String[] {"1", "2", "3", "4" , "All"};
     private String locationProvider;
     public static final int PERMISSION_REQUEST_LOCATION = 410001;
     LocationManager locManager;
-    String longitude;
-    String latitude;
+    String longitude="0";
+    String latitude="0";
     public static int GET_RESULT_INTENT = 1;
 
 
@@ -40,7 +47,6 @@ public class NearbyActivity extends AppCompatActivity implements LocationListene
         spinner.setAdapter(adapter);
 
         setupLocationServices();
-
     }
 
     private void setupLocationServices() {
@@ -109,8 +115,8 @@ public class NearbyActivity extends AppCompatActivity implements LocationListene
                 == PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             Location location2 = locManager.getLastKnownLocation(locationProvider);
-            latitude = String.valueOf(location2.getLatitude());
-            longitude = String.valueOf(location2.getLongitude());
+            //latitude = String.valueOf(location2.getLatitude());
+            //longitude = String.valueOf(location2.getLongitude());
 
 
             //    ActivityCompat#requestPermissions
