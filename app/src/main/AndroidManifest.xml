@@ -31,7 +31,10 @@
         <activity android:name=".reviewActivity" />
         <activity android:name=".NearbyPlacesActivity" />
         <activity android:name=".ShowMapsActivity" />
-        <activity android:name=".SearchPlacesActivity"></activity>
+        <activity android:name=".SearchPlacesActivity"/>
+        <activity android:name=".ChatActivity" android:windowSoftInputMode="stateVisible|adjustPan"/>
+        <activity android:name=".ChatRoomActivity" android:windowSoftInputMode="stateVisible">
+        </activity>
     </application>
 
 </manifest>

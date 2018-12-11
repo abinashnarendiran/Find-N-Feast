@@ -1,5 +1,6 @@
 package ca.csci4100.uoit.project;
 
+import android.content.Context;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,6 +14,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.io.BufferedReader;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
     public static int GET_LOGIN_INTENT = 1;
     NavigationView navigationView;
     FirebaseUser user;
+    private FirebaseAuth mAuth;
+    public Context context;
 
     public void getUserData(){
         String line = "";
@@ -60,6 +64,9 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
         drawerLayout.addDrawerListener(mToggle);
         */
         navigationView= (NavigationView) findViewById(R.id.navigationView);
+
+        mAuth = FirebaseAuth.getInstance();
+        context = this;
 
         if (savedInstanceState == null) {
             //navigationView.setCheckedItem(R.id.nearby);
@@ -98,7 +105,12 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
         startActivity(logoutIntent);
     }
 
-
+    public void chat(View view) {
+        FirebaseUser user = mAuth.getCurrentUser();
+        Intent chatIntent = new Intent(context, ChatActivity.class);
+        chatIntent.putExtra("user",user);
+        context.startActivity(chatIntent);
+    }
 
     /*@Override
     public boolean onNavigationItemSelected(MenuItem item) {

@@ -67,4 +67,11 @@
     <string name="confirm_review">Confirm Review</string>
     <string name="cancel">Cancel</string>
     <string name="rate">rate</string>
+
+    <!--Chat-->
+    <string name="add_room_btn">ADD ROOM</string>
+    <string name="main_title">Welcome to the Chat Room</string>
+    <string name="send_btn">SEND</string>
+    <string name="room_hint">Enter Room Name</string>
+    <string name="message_hint">Enter Message Here</string>
 </resources>
