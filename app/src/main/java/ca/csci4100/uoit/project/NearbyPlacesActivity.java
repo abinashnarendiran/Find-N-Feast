@@ -24,8 +24,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.textclassifier.TextLinks;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -100,10 +102,13 @@ public class NearbyPlacesActivity extends AppCompatActivity{
     public void rate(View v){
         Intent i = new Intent(this,reviewActivity.class);
 
-        String address="";
-        ViewGroup parent =(ViewGroup)v.getParent();
-        //System.out.println(((TextView)((LinearLayout)parent.getChildAt(1)).getChildAt(0)).getText());
+        String address="ERROR";
 
+        View a = ((ViewGroup) v.getParent().getParent()).getChildAt(1);//gets Address block
+        //View a = ((ViewGroup) v.getParent().getParent()).getChildAt(0);//gets name block
+        TextView t = (TextView) ((LinearLayout) a).getChildAt(0);
+
+        address=t.getText().toString();
 
         i.putExtra("address",address);
         this.startActivity(i);

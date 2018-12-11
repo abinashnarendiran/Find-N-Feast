@@ -1,10 +1,10 @@
 package ca.csci4100.uoit.project;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteDatabase;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,8 @@ public class SqliteReviewHelper extends SQLiteOpenHelper {
         //todo
     }
     public List<Review> getAllReviews(){
-        SQLiteDatabase db = this.getReadableDatabase();String[] columns = new String[] {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = new String[] {
                 COLUMN_REVIEW_DATE,
                 COLUMN_REVIEW_ADDRESS,
                 COLUMN_REVIEW_DESCRIPTION,
@@ -64,6 +65,40 @@ public class SqliteReviewHelper extends SQLiteOpenHelper {
                 "", args,
                 "", "",
                 COLUMN_REVIEW_ADDRESS);
+
+        List<Review> reviews = new ArrayList<>();
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            //System.out.print("|");
+            String date=cursor.getString(0);
+            String address=cursor.getString(1);
+            String description=cursor.getString(2);
+            float rating=cursor.getFloat(3);
+
+            Review review = new Review(rating,address,date,description);
+
+            reviews.add(review);
+
+            cursor.moveToNext();
+        }
+
+        return reviews;
+    }
+    public List<Review> getAllReviewsWhere(String targetAddress){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = new String[] {
+            COLUMN_REVIEW_DATE,
+            COLUMN_REVIEW_ADDRESS,
+            COLUMN_REVIEW_DESCRIPTION,
+            COLUMN_REVIEW_RATING
+        };
+        String[] args = new String[] {
+            targetAddress
+        };
+        Cursor cursor = db.query(TABLE_NAME, columns,
+            COLUMN_REVIEW_ADDRESS+"=?", args,
+            "", "",
+            COLUMN_REVIEW_ADDRESS);
 
         List<Review> reviews = new ArrayList<>();
         cursor.moveToFirst();
@@ -101,24 +136,22 @@ public class SqliteReviewHelper extends SQLiteOpenHelper {
         Review review = new Review(rating,address,date,description);
         return review;
     }
+    public void printAll(){
+        List<Review> list = getAllReviews();
+        for(int x=0;x<list.size();x++){
+            System.out.println(list.get(x));
+        }
+
+    }
     public String getAverageRating(String address){
-        System.out.println(address);
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{COLUMN_REVIEW_RATING}, COLUMN_REVIEW_ADDRESS+"=\""+address+"\"", null, null, null, null);
+        List<Review> list = getAllReviewsWhere(address);
+        if(list.size()==0)return "No Rating";
+        float total=0;
 
-        cursor.moveToFirst();
-        double total=0,count=0;
+        for(int x=0;x<list.size();x++){
+            total+=list.get(x).rating;
+        }
 
-        while (!cursor.isAfterLast()) {
-            System.out.println(cursor.getString(0));
-            cursor.moveToNext();
-            count++;
-            total+=Double.parseDouble(cursor.getString(0));
-        }
-        if(count>0){
-            System.out.println(address+"\t"+total/count);
-            return (total/count)+"";
-        }
-        return "No Rating";
+        return (total/((float)list.size()))+"/5";
     }
 }

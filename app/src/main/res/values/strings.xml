@@ -74,4 +74,5 @@
     <string name="send_btn">SEND</string>
     <string name="room_hint">Enter Room Name</string>
     <string name="message_hint">Enter Message Here</string>
+    <string name="your_rating">Your Rating:</string>
 </resources>

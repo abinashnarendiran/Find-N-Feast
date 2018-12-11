@@ -13,8 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class reviewActivity extends AppCompatActivity {
     private SqliteReviewHelper reviewHelper;
@@ -37,6 +35,7 @@ public class reviewActivity extends AppCompatActivity {
         }
         catch (Exception e){
             //not passed in
+            System.out.println(e);
         }
     }
     public void cancel (View v){
@@ -76,6 +75,7 @@ public class reviewActivity extends AppCompatActivity {
             finish();
         }
         catch (Exception e){
+            Toast.makeText(reviewActivity.this, "invalid input", Toast.LENGTH_SHORT).show();
             System.out.println(e);
         }
     }

@@ -1,5 +1,6 @@
 package ca.csci4100.uoit.project;
 
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.content.Context;
