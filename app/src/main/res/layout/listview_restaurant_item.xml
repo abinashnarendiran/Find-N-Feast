@@ -196,7 +196,28 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:textColor="@color/textColor"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:text="@string/world_rating"
+            android:textColor="@color/textColor"/>
+
+        <TextView
+            android:id="@+id/worldRating"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textColor="@color/textColor"/>
     </LinearLayout>
 
 

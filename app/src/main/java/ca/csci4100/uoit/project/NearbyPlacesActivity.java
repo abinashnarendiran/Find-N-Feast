@@ -69,6 +69,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
     String phone_number;
     String rating;
     String sqlRating;
+    String worldRating;
     String website;
     String image;
     String spinner_price;
@@ -80,6 +81,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
     float distanceInKm;
     int count = 0;
     String url = "https://csci4100app.firebaseio.com/.json";
+    String jsonData = "";
 
 
     @Override
@@ -135,7 +137,6 @@ public class NearbyPlacesActivity extends AppCompatActivity{
 
     class DownloadNearbyRestaurantsTask extends AsyncTask<String, Void, ArrayList<Restaurant>> {
         ArrayList<Restaurant> restaurants = new ArrayList<>();
-        String jsonData = "";
 
         @Override
         protected ArrayList<Restaurant> doInBackground(String... params) {
@@ -173,10 +174,16 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                         JSONObject getRestaurant = jObject.getJSONObject(key);
 
                         for(int i = 1; i <= getRestaurant.length(); i++){
-                            JSONObject restaurant_details = getRestaurant.getJSONObject("Restaurant_"+i);
-                            Log.d("Number", "Restaurant_"+i);
-                            latitude2 = restaurant_details.getDouble("latitude");
-                            longitude2 = restaurant_details.getDouble("longitude");
+                            JSONObject restaurant_details;
+                            try {
+                                restaurant_details = getRestaurant.getJSONObject("Restaurant_"+i);
+                                Log.d("Number", "Restaurant_"+i);
+                                latitude2 = restaurant_details.getDouble("latitude");
+                                longitude2 = restaurant_details.getDouble("longitude");
+                            }
+                            catch (org.json.JSONException j){
+                                break;
+                            }
 
                             float[] results = new float[1];
                             Location.distanceBetween(latitude2, longitude2, latitude, longitude, results);
@@ -201,7 +208,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                     String hours1 = "";
 
                                     sqlRating=reviewHelper.getAverageRating(address);
-
+                                    worldRating=getWorldReview(address);
 
                                     for(int j = 0; j < hours_array.length; j++){
                                         hours1 += hours_array[j] + "\n";
@@ -211,7 +218,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                     distanceInKm = distance / 1000;
 
                                     Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description, type,
-                                            price_range, phone_number, rating, sqlRating, hours1, website, image, distanceInKm,
+                                            price_range, phone_number, rating, sqlRating, worldRating, hours1, website, image, distanceInKm,
                                             latitude2, longitude2);
 
                                     Log.d("Restaurant", String.valueOf(restaurant));
@@ -238,7 +245,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                         String hours2 = "";
 
                                         sqlRating=reviewHelper.getAverageRating(address);
-
+                                        worldRating=getWorldReview(address);
 
                                         for(int j = 0; j < hours_array.length; j++){
                                             hours2 += hours_array[j] + "\n";
@@ -249,7 +256,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                         distanceInKm = distance / 1000;
 
                                         Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description, type,
-                                                price_range, phone_number, rating,sqlRating, hours2, website, image, distanceInKm,
+                                                price_range, phone_number, rating,sqlRating,worldRating, hours2, website, image, distanceInKm,
                                                 latitude2, longitude2);
 
 
@@ -307,6 +314,33 @@ public class NearbyPlacesActivity extends AppCompatActivity{
             showRestaurants(data);
 
         }
+        public String getWorldReview(String address){
+            float total=0,count=0;
+            try {
+                JSONObject jObject= new JSONObject(jsonData);
+
+                Iterator<String> keys =  jObject.keys();
+
+                keys.next();
+                String key = keys.next();
+                JSONObject getRestaurant = jObject.getJSONObject(key);
+                //System.out.println("reviews: "+getRestaurant.toString());
+                keys =  getRestaurant.keys();
+                while(keys.hasNext()) {
+                    key=keys.next();
+                    //System.out.println("reviews: " + getRestaurant.getJSONObject(key).get("address"));
+                    if(address.equals(getRestaurant.getJSONObject(key).get("address"))){
+                        total+=Float.parseFloat(getRestaurant.getJSONObject(key).get("rating").toString());
+                        count+=1;
+                    }
+                }
+            }
+            catch (org.json.JSONException j){
+                System.err.println(j);
+            }
+            return (total/count)+"/5";
+        }
     }
+
 }
 

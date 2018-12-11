@@ -12,6 +12,7 @@ public class Restaurant {
     private String phone_number;
     private String rating;
     private String sqlRating;
+    private String worldRating;
     private String hours;
     private String website;
     private String image;
@@ -21,7 +22,7 @@ public class Restaurant {
 
 
     public Restaurant(int count, String restaurant_name, String address , String description , String type, String price_range, String phone_number,
-                      String rating, String sqlRating, String hours, String website, String image, float distance, double latitude, double longitude) {
+                      String rating, String sqlRating, String worldRating, String hours, String website, String image, float distance, double latitude, double longitude) {
 
         this.setCount(count);
         this.setRestaurant_name(restaurant_name);
@@ -32,6 +33,7 @@ public class Restaurant {
         this.setPhone_number(phone_number);
         this.setRating(rating);
         this.setSqlRating(sqlRating);
+        this.setWorldRating(worldRating);
         this.setHours(hours);
         this.setImage(image);
         this.setWebsite(website);
@@ -104,6 +106,14 @@ public class Restaurant {
 
     public void setSqlRating(String sqlRating) {
         this.sqlRating = sqlRating;
+    }
+
+    public String getWorldRating() {
+        return worldRating;
+    }
+
+    public void setWorldRating(String worldRating) {
+        this.worldRating = worldRating;
     }
 
     public String getHours() {

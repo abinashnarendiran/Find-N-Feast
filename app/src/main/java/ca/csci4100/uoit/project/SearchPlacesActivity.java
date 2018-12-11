@@ -72,6 +72,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
     String phone_number;
     String rating;
     String sqlRating;
+    String worldRating;
     String website;
     String image;
     float distance;
@@ -229,6 +230,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                                             String hours1 = "";
 
                                             sqlRating=reviewHelper.getAverageRating(address);
+                                            worldRating=getWorldReview(address);
 
                                             String[] hours_array = restaurant_details.getString("hours").
                                                     split("\\s*,\\s*");
@@ -242,7 +244,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                                             distanceInKm = distance / 1000;
 
                                             Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description,
-                                                    type, price_range, phone_number, rating, sqlRating, hours1, website, image,
+                                                    type, price_range, phone_number, rating, sqlRating, worldRating, hours1, website, image,
                                                     distanceInKm, latitude2, longitude2);
 
                                             Log.d("Add", String.valueOf(restaurant));
@@ -269,6 +271,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                                                 String hours2 = "";
 
                                                 sqlRating=reviewHelper.getAverageRating(address);
+                                                worldRating=getWorldReview(address);
 
                                                 String[] hours_array = restaurant_details.getString("hours")
                                                         .split("\\s*,\\s*");
@@ -282,7 +285,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                                                 distanceInKm = distance / 1000;
 
                                                 Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description,
-                                                        type, price_range, phone_number, rating, sqlRating, hours2, website, image,
+                                                        type, price_range, phone_number, rating, sqlRating, worldRating, hours2, website, image,
                                                         distanceInKm, latitude2, longitude2);
 
                                                 Log.d("Add", String.valueOf(restaurant));
@@ -340,7 +343,9 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
 
         }
     }
-
+    public String getWorldReview(String address){
+        return "TODO";
+    }
 
 }
 
