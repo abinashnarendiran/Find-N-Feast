@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".NearbyActivity"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/login_background">
 
     <TextView
         android:id="@+id/search_nearby"
@@ -14,7 +14,7 @@
         android:layout_marginTop="25dp"
         android:text = "@string/nearbyPlaces"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColor2"
         android:textSize="30dp"/>
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_marginTop="100dp"
         android:text = "@string/price"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColor2"
         android:textSize="25dp"/>
 
     <Spinner
@@ -34,7 +34,7 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/textColor"
         android:gravity="center"
-        android:padding="10dp"
+        android:padding="7dp"
         android:background="@color/textColor2"
         android:textSize="20dp"/>
 

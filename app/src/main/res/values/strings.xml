@@ -66,7 +66,7 @@
     <string name="rating">Rating</string>
     <string name="confirm_review">Confirm Review</string>
     <string name="cancel">Cancel</string>
-    <string name="rate">rate</string>
+    <string name="rate">Rate</string>
 
     <!--Chat-->
     <string name="add_room_btn">ADD ROOM</string>

@@ -19,7 +19,8 @@
             android:layout_marginLeft="10dp"
             android:text=""
             android:textSize="25dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
 
 
@@ -30,7 +31,8 @@
             android:layout_marginLeft="10dp"
             android:text="Restaurant Name"
             android:textSize="25dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -40,7 +42,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:textSize="25dp"
-        android:textColor="@color/textColor">
+        android:textColor="@color/textColor2">
 
 
         <TextView
@@ -50,7 +52,8 @@
             android:layout_marginLeft="10dp"
             android:text="Address"
             android:textSize="20dp"
-            android:textColor="@color/link_blue"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -67,7 +70,8 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="Type"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -85,7 +89,8 @@
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:text="@string/priceRange"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/lblPriceRange"
@@ -94,7 +99,8 @@
             android:layout_marginLeft="10dp"
             android:text="Price Range"
             android:textSize="20dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -111,7 +117,8 @@
             android:layout_marginLeft="10dp"
             android:text="@string/description"
             android:textSize="20dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/lblDescription"
@@ -120,7 +127,8 @@
             android:layout_marginLeft="10dp"
             android:text="Description"
             android:textSize="20dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -138,7 +146,8 @@
             android:layout_marginLeft="10dp"
             android:text="@string/phoneNumber"
             android:textSize="20dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/lblPhone_number"
@@ -147,7 +156,8 @@
             android:layout_marginLeft="10dp"
             android:text="Phone_number"
             android:textSize="20dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -164,7 +174,8 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="@string/rating2"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/lblRating"
@@ -173,8 +184,11 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="Rating"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
@@ -187,7 +201,8 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="@string/your_rating"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/sqlRating"
@@ -195,8 +210,11 @@
             android:layout_width="match_parent"
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
@@ -209,7 +227,8 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="@string/world_rating"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/worldRating"
@@ -217,7 +236,8 @@
             android:layout_width="match_parent"
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 
@@ -234,7 +254,8 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="@string/website"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/lblWebsite"
@@ -243,7 +264,8 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="Website"
-            android:textColor="@color/link_blue" />
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -260,7 +282,8 @@
         android:layout_marginLeft="10dp"
         android:textSize="20dp"
         android:text="@string/hours"
-        android:textColor="@color/textColor"/>
+        android:textColor="@color/textColor2"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/lblHours"
@@ -269,7 +292,8 @@
         android:layout_marginLeft="10dp"
         android:textSize="20dp"
         android:text="Hours"
-        android:textColor="@color/textColor"/>
+        android:textColor="@color/textColor2"
+        android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
@@ -285,7 +309,8 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="@string/distance"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
 
         <TextView
@@ -295,7 +320,8 @@
             android:layout_marginLeft="10dp"
             android:textSize="20dp"
             android:text="Distance"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/textColor2"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -310,7 +336,12 @@
             android:layout_height="wrap_content"
             android:text="@string/rate"
             android:onClick="rate"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:background="@color/button_color"
+            android:textColor="@color/textColor2"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"/>
+
         <ImageView
             android:id="@+id/lblImage"
             android:layout_width="190dp"
