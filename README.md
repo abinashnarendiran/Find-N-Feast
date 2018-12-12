@@ -9,4 +9,21 @@
 3. Open Android Studio
 4. Select File > New > Import Project
 5. Select the project folder ../../CSCI_4100_Project
-6. Run in emulator :
+6. Run in emulator : Google Pixel 2 (Andord 8.1 with Google API) and above
+
+
+
+
+## Recommend latitude and longtitude in device settings for nearby portion
+
+Latitude  : 43.9459
+Longitude : -78.8967
+
+
+
+
+## Recommend addresses and types to use for search portion
+
+1. 22 Good Road, Scarborough, ON M1C4G4
+2. 41 Bradbury Crescent, Ajax, ON L1T4H5
+
