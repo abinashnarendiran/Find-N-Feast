@@ -27,7 +27,7 @@ Longitude : -78.8967
 
 1. 22 Good Road, Scarborough, ON M1C4G4
 
-   Keyword: 
+   Keyword to use: 
    - Pizza
    - Late Night Food
    - Wings
@@ -37,4 +37,12 @@ Longitude : -78.8967
     
     
 2. 41 Bradbury Crescent, Ajax, ON L1T4H5
+
+   Keyword to use: 
+   - Indian
+   - Italian
+   - Bar
+   - Cafe
+   - Late Night Food
+  
 
