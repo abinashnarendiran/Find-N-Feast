@@ -46,3 +46,7 @@ Longitude : -78.8967
    - Late Night Food
   
 
+
+
+         $ To test the chat please use two devices to communicate with each other
+  
