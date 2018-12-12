@@ -27,11 +27,12 @@ Longitude : -78.8967
 
 1. 22 Good Road, Scarborough, ON M1C4G4
 
-   Keyword: - Pizza
-            - Late Night Food
-            - Wings
-            - Mediterranean
-            - Indian
+   Keyword: 
+   - Pizza
+   - Late Night Food
+   - Wings
+   - Mediterranean
+   - Indian
          
     
     
