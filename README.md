@@ -14,15 +14,16 @@
 
 
 
-## Recommend latitude and longtitude in device settings for nearby portion
+# Recommend latitude and longtitude in device settings for nearby portion
 
 Latitude  : 43.9459
+
 Longitude : -78.8967
 
 
 
 
-## Recommend addresses and types to use for search portion
+# Recommend addresses and types to use for search portion
 
 1. 22 Good Road, Scarborough, ON M1C4G4
 2. 41 Bradbury Crescent, Ajax, ON L1T4H5
