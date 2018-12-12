@@ -54,5 +54,6 @@
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="129dp"
-        android:hint="@string/room_hint" />
+        android:hint="@string/room_hint"
+        android:textColor="@color/textColor2" />
 </RelativeLayout>

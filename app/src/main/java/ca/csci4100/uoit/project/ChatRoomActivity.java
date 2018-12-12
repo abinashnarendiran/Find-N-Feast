@@ -13,11 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.*;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,12 +25,14 @@ import java.util.Iterator;
 public class ChatRoomActivity extends AppCompatActivity {
     EditText messageInput;
     TextView chatView;
+    TextView roomLabel;
 
     private String userEmail, roomName;
 
     DatabaseReference ref;
     String temp;
     MediaPlayer mp;
+
     Context context = this;
 
     @Override
@@ -44,6 +44,8 @@ public class ChatRoomActivity extends AppCompatActivity {
         messageInput = (EditText)findViewById(R.id.messageInput);
 
         chatView = (TextView)findViewById(R.id.chatView);
+        roomLabel = (TextView)findViewById(R.id.roomLabel);
+
         chatView.setMovementMethod(new ScrollingMovementMethod());
 
         if(getSupportActionBar() != null)
@@ -55,9 +57,9 @@ public class ChatRoomActivity extends AppCompatActivity {
         userEmail = getIntent().getExtras().get("userEmail").toString();
         roomName = getIntent().getExtras().get("roomName").toString();
 
-        ref = FirebaseDatabase.getInstance().getReference("Chat").child(roomName);
+        roomLabel.setText("Room Name: " + roomName);
 
-        setTitle(" Room - " + roomName);
+        ref = FirebaseDatabase.getInstance().getReference("Chat").child(roomName);
 
         mp = MediaPlayer.create(context, R.raw.sent);
 
@@ -71,8 +73,11 @@ public class ChatRoomActivity extends AppCompatActivity {
                         mp.stop();
                         mp.release();
                         mp = MediaPlayer.create(context, R.raw.sent);
-                    } mp.start();
-                } catch(Exception e) { e.printStackTrace(); }
+                    }
+                    mp.start();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
                 send(v);
             }
         });
@@ -89,9 +94,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
+            public void onChildRemoved(DataSnapshot dataSnapshot) {}
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
@@ -99,9 +102,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
+            public void onCancelled(DatabaseError databaseError) {}
         });
     }
 
@@ -115,7 +116,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     public void send(View v)
     {
-        String timeStamp = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss a").format(Calendar.getInstance().getTime());
+        String timeStamp = new SimpleDateFormat("EEE MMM dd yyyy h:mm:ss a").format(Calendar.getInstance().getTime());
 
         HashMap<String, Object> map = new HashMap<>();
 
