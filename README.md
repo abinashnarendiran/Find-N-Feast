@@ -65,12 +65,13 @@
   ### Chat
  
           $ To test the chat please use two devices to communicate with each other
-          $ If you want to do a review, make an account or use the recommended user login
+          $ To hear the sent sound, put the volume when sending a message
+          
   
   
   
 
-  
+ Note: If you want to do a review, make an account or use the recommended user login
   
   
   By: Abinash, Saijeeshan, and Joseph
