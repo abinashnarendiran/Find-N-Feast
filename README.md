@@ -62,12 +62,14 @@
     - Late Night Food
    
  
+  ### Chat
  
           $ To test the chat please use two devices to communicate with each other
+          $ If you want to do a review, make an account or use the recommended user login
   
   
   
-  Note: If you want to do a review, make an account or use the recommended user login
+
   
   
   
