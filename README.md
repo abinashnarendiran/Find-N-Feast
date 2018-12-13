@@ -12,7 +12,11 @@
  6. Run in emulator : Google Pixel 2 (Andord 8.1 with Google API) and above
  
  
-  ### Recommend user login
+ 
+
+ 
+ 
+  ### Recommended user login
   
   Email: test@gmail.com
   
@@ -21,7 +25,11 @@
  
  
  
- ### Recommend latitude and longtitude in device settings for nearby portion
+  Note: If you want to do a review, make an account or use the recommended user login
+ 
+ 
+ 
+ ### Recommended latitude and longtitude in device settings for nearby portion
  
  Latitude  : 43.9459
  
@@ -30,7 +38,7 @@
  
  
  
- ### Recommend addresses and keywords to use in the search box to use for search portion
+ ### Recommended addresses and keywords to use in the search box to use for search portion
  
  1. 22 Good Road, Scarborough, ON M1C4G4
  
