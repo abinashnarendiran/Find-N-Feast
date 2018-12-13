@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.Location;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.content.Intent;
@@ -148,8 +151,6 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                 in.close();
 
                 jsonData = sBuilder.toString();
-
-                Log.d("Restaurant", "Hi");
 
                 JSONObject jObject= new JSONObject(jsonData);
 

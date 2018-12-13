@@ -33,6 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/textColor2"
                 android:text="@string/address"/>
             <EditText
                 android:id="@+id/addressInput"
@@ -48,14 +49,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/description"/>
-            <EditText
-                android:outlineProvider="bounds"
-                android:id="@+id/descriptionInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:textColor="@color/textColor2"
-                android:lines="4"/>
+                android:text="@string/description"/>
+
+            <EditText
+                android:id="@+id/descriptionInput"
+                android:layout_width="291dp"
+                android:layout_height="95dp"
+                android:lines="4"
+                android:outlineProvider="bounds"
+                android:textColor="@color/textColor2" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,6 +67,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/textColor2"
                 android:text="@string/rating"/>
             <EditText
                 android:id="@+id/ratingInput"

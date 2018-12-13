@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Find "N" Feast</string>
+    <string name="app_name"><font color='#FFFFFF'>Find "N" Feast</font></string>
 
     <!--Login and Signup-->
     <string name="email">Email</string>

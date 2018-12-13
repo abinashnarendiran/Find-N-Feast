@@ -136,8 +136,6 @@ public class NearbyPlacesActivity extends AppCompatActivity{
 
                 jsonData = sBuilder.toString();
 
-                Log.d("Restaurant", "Hi");
-
                 JSONObject jObject= new JSONObject(jsonData);
 
                 Iterator<String> keys =  jObject.keys();

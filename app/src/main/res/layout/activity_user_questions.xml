@@ -17,7 +17,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="60dp"
         android:text="@string/ques_1"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColor2"
         android:textStyle="bold" />
 
     <RadioGroup
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/option_1"
-            android:textColor="@color/textColor"
+            android:textColor="@color/textColor2"
             android:textStyle="bold" />
 
         <RadioButton
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/option_2"
-            android:textColor="@color/textColor"
+            android:textColor="@color/textColor2"
             android:textStyle="bold" />
 
         <RadioButton
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/option_3"
-            android:textColor="@color/textColor"
+            android:textColor="@color/textColor2"
             android:textStyle="bold" />
     </RadioGroup>
 
@@ -60,19 +60,21 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:text="@string/ques_2"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColor2"
         android:textStyle="bold" />
 
     <EditText
         android:hint="min price"
         android:id="@+id/minPrice"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor2" />
     <EditText
         android:hint="max price"
         android:id="@+id/maxPrice"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor2" />
     <!--<RadioGroup
         android:id="@+id/priceList"
         android:layout_width="match_parent"
@@ -122,7 +124,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:text="@string/ques_3"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColor2"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -137,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/option_8"
-            android:textColor="@color/textColor"
+            android:textColor="@color/textColor2"
             android:textStyle="bold" />
 
         <CheckBox
@@ -146,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/option_9"
-            android:textColor="@color/textColor"
+            android:textColor="@color/textColor2"
             android:textStyle="bold" />
 
         <CheckBox
@@ -155,7 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/option_10"
-            android:textColor="@color/textColor"
+            android:textColor="@color/textColor2"
             android:textStyle="bold" />
 
         <CheckBox
@@ -164,8 +166,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/option_11"
-            android:textColor="@color/textColor"
+            android:textColor="@color/textColor2"
             android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -176,14 +179,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=": "
-                android:textStyle="bold"
-                android:textColor="@color/textColor" />
+                android:text=""
+                android:textColor="@color/textColor2"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/optionEdit"
-                android:layout_width="wrap_content"
+                android:layout_width="69dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/option_12"/>
+                android:layout_marginStart="-5dp"
+                android:hint="@string/option_12"
+                android:textColor="@color/textColor2" />
         </LinearLayout>
     </LinearLayout>
 

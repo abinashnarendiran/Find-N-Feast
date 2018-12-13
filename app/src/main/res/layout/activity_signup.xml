@@ -18,7 +18,7 @@
         android:layout_marginTop="125dp"
         android:layout_marginRight="130dp"
         android:text="@string/first_name"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColor2"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -30,7 +30,7 @@
         android:layout_marginEnd="25dp"
         android:ems="12"
         android:inputType="textPersonName"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColor2"
         android:textStyle="bold" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="130dp"
         android:text="@string/last_name"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColor2"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
         android:ems="12"
         android:inputType="textPersonName"
         android:textStyle="bold"
-        android:textColor="@color/textColor"/>
+        android:textColor="@color/textColor2" />
 
     <!--not needed
     <TextView

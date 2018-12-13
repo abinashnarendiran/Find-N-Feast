@@ -24,8 +24,6 @@ import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity /* implements NavigationView.OnNavigationItemSelectedListener*/ {
 
-    DrawerLayout drawerLayout;
-    ActionBarDrawerToggle mToggle;
     Toolbar toolbar;
     public static int GET_LOGIN_INTENT = 1;
     NavigationView navigationView;
@@ -131,12 +129,8 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
     }*/
 
     private void setUpToolbar() {
-        drawerLayout = findViewById(R.id.drawerLayout);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.app_name,R.string.app_name);
-        drawerLayout.addDrawerListener(mToggle);
-        mToggle.syncState();
     }
 
 
@@ -145,19 +139,13 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            //super.onBackPressed();
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            Toast.makeText(MainActivity.this, "You are logged out",Toast.LENGTH_SHORT).show();
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-        }
+        //super.onBackPressed();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        Toast.makeText(MainActivity.this, "You are logged out",Toast.LENGTH_SHORT).show();
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
-
-
 
         @Override
     public void onActivityResult(int requestCode,
