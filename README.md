@@ -65,7 +65,7 @@
   ### Chat
  
           $ To test the chat please use two devices to communicate with each other
-          $ To hear the sound of send sound, put the volume when sending a message
+          $ To hear the sent sound, put the volume when sending a message
           
   
   
