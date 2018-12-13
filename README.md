@@ -37,6 +37,10 @@
  
  
  
+ Note: If using chat, put sound up to hear the send sound effect when sending a message
+ 
+ 
+ 
  
  ### Recommended addresses and keywords to use in the search box to use for search portion
  
