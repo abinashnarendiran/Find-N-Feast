@@ -1,59 +1,33 @@
 package ca.csci4100.uoit.project;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Criteria;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.location.LocationManager;
+import android.widget.LinearLayout;
+import android.location.Location;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.view.ViewGroup;
+import android.content.Intent;
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.view.View;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.textclassifier.TextLinks;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
-import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.osmdroid.config.Configuration;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.ArrayList;
+import java.io.InputStream;
 import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
+import java.net.URL;
 
 public class NearbyPlacesActivity extends AppCompatActivity{
 
@@ -170,67 +144,31 @@ public class NearbyPlacesActivity extends AppCompatActivity{
 
                 while (keys.hasNext()) {
                     String key = keys.next();
+                    System.out.println(key);
+                    if(key.equals("Restaurants")){}else{continue;}
                     try{
                         JSONObject getRestaurant = jObject.getJSONObject(key);
-
+                        System.out.println(getRestaurant.length());
                         for(int i = 1; i <= getRestaurant.length(); i++){
                             JSONObject restaurant_details;
+                            System.out.println("R"+i);
                             try {
+
                                 restaurant_details = getRestaurant.getJSONObject("Restaurant_"+i);
                                 Log.d("Number", "Restaurant_"+i);
                                 latitude2 = restaurant_details.getDouble("latitude");
                                 longitude2 = restaurant_details.getDouble("longitude");
-                            }
-                            catch (org.json.JSONException j){
-                                continue;
-                            }
-
-                            float[] results = new float[1];
-                            Location.distanceBetween(latitude2, longitude2, latitude, longitude, results);
-                            distance = Math.round(results[0]);
-
-                            if (distance <= 5000) {
-
-                                price_range = restaurant_details.getString("price_range");
-
-                                if (price_range.equals(spinner_price)) {
-
-                                    restaurant_name = restaurant_details.getString("restaurant_name");
-                                    address = restaurant_details.getString("address");
-                                    description = restaurant_details.getString("description");
-                                    type = restaurant_details.getString("type");
-                                    phone_number = restaurant_details.getString("phone_number");
-                                    rating = restaurant_details.getString("rating");
-                                    website = restaurant_details.getString("website");
-                                    image = restaurant_details.getString("image");
-                                    String hours_list = restaurant_details.getString("hours");
-                                    String[] hours_array = hours_list.split("\\s*,\\s*");
-                                    String hours1 = "";
-
-                                    sqlRating=reviewHelper.getAverageRating(address);
-                                    worldRating=getWorldReview(address);
-
-                                    for(int j = 0; j < hours_array.length; j++){
-                                        hours1 += hours_array[j] + "\n";
-                                        Log.d("Hours", hours_array[j]);
-                                    }
-
-                                    distanceInKm = distance / 1000;
-
-                                    Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description, type,
-                                            price_range, phone_number, rating, sqlRating, worldRating, hours1, website, image, distanceInKm,
-                                            latitude2, longitude2);
-
-                                    Log.d("Restaurant", String.valueOf(restaurant));
-
-                                    restaurants.add(restaurant);
 
 
+                                float[] results = new float[1];
+                                Location.distanceBetween(latitude2, longitude2, latitude, longitude, results);
+                                distance = Math.round(results[0]);
+                                System.out.println(distance+"\t"+restaurant_details.getString("restaurant_name"));
+                                if (distance <= 5000) {
 
-                                }
-                                else if (spinner_price.equals("All")) {
-                                    if (price_range.equals("1") || price_range.equals("2") || price_range.equals("3")
-                                            || price_range.equals("4")) {
+                                    price_range = restaurant_details.getString("price_range");
+
+                                    if (price_range.equals(spinner_price)) {
 
                                         restaurant_name = restaurant_details.getString("restaurant_name");
                                         address = restaurant_details.getString("address");
@@ -240,37 +178,79 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                         rating = restaurant_details.getString("rating");
                                         website = restaurant_details.getString("website");
                                         image = restaurant_details.getString("image");
-                                        String hours_list2 = restaurant_details.getString("hours");
-                                        String[] hours_array = hours_list2.split("\\s*,\\s*");
-                                        String hours2 = "";
+                                        String hours_list = restaurant_details.getString("hours");
+                                        String[] hours_array = hours_list.split("\\s*,\\s*");
+                                        String hours1 = "";
 
                                         sqlRating=reviewHelper.getAverageRating(address);
                                         worldRating=getWorldReview(address);
 
                                         for(int j = 0; j < hours_array.length; j++){
-                                            hours2 += hours_array[j] + "\n";
-                                            Log.d("Hours1", hours_array[j]);
+                                            hours1 += hours_array[j] + "\n";
+                                            Log.d("Hours", hours_array[j]);
                                         }
-
 
                                         distanceInKm = distance / 1000;
 
                                         Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description, type,
-                                                price_range, phone_number, rating,sqlRating,worldRating, hours2, website, image, distanceInKm,
+                                                price_range, phone_number, rating, sqlRating, worldRating, hours1, website, image, distanceInKm,
                                                 latitude2, longitude2);
 
-
-                                        Log.d("Restaurant", String.valueOf(restaurant));
 
                                         restaurants.add(restaurant);
 
 
+
                                     }
+                                    else if (spinner_price.equals("All")) {
+                                        if (price_range.equals("1") || price_range.equals("2") || price_range.equals("3")
+                                                || price_range.equals("4")) {
+
+                                            restaurant_name = restaurant_details.getString("restaurant_name");
+                                            address = restaurant_details.getString("address");
+                                            description = restaurant_details.getString("description");
+                                            type = restaurant_details.getString("type");
+                                            phone_number = restaurant_details.getString("phone_number");
+                                            rating = restaurant_details.getString("rating");
+                                            website = restaurant_details.getString("website");
+                                            image = restaurant_details.getString("image");
+                                            String hours_list2 = restaurant_details.getString("hours");
+                                            String[] hours_array = hours_list2.split("\\s*,\\s*");
+                                            String hours2 = "";
+
+                                            sqlRating=reviewHelper.getAverageRating(address);
+                                            worldRating=getWorldReview(address);
+
+                                            for(int j = 0; j < hours_array.length; j++){
+                                                hours2 += hours_array[j] + "\n";
+                                                Log.d("Hours1", hours_array[j]);
+                                            }
+
+
+                                            distanceInKm = distance / 1000;
+
+                                            Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description, type,
+                                                    price_range, phone_number, rating,sqlRating,worldRating, hours2, website, image, distanceInKm,
+                                                    latitude2, longitude2);
+                                            System.out.println(restaurant_name+"\t"+distanceInKm);
+
+                                            Log.d("Restaurant", String.valueOf(restaurant));
+
+                                            restaurants.add(restaurant);
+
+
+                                        }
+                                    }
+
                                 }
+                            }
+                            catch (org.json.JSONException j){
+                                System.out.println(j);
                             }
                         }
                     }catch(JSONException e) {
                         e.printStackTrace();
+                        System.out.println(e);
                     }
                 }
 
@@ -319,16 +299,16 @@ public class NearbyPlacesActivity extends AppCompatActivity{
             try {
                 JSONObject jObject= new JSONObject(jsonData);
 
-                Iterator<String> keys =  jObject.keys();
+                Iterator<String> keys;
 
-                keys.next();
-                String key = keys.next();
+                String key = "Reviews";
                 JSONObject getRestaurant = jObject.getJSONObject(key);
                 //System.out.println("reviews: "+getRestaurant.toString());
                 keys =  getRestaurant.keys();
                 while(keys.hasNext()) {
                     key=keys.next();
                     //System.out.println("reviews: " + getRestaurant.getJSONObject(key).get("address"));
+
                     if(address.equals(getRestaurant.getJSONObject(key).get("address"))){
                         total+=Float.parseFloat(getRestaurant.getJSONObject(key).get("rating").toString());
                         count+=1;
@@ -338,6 +318,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
             catch (org.json.JSONException j){
                 System.err.println(j);
             }
+            if(count==0)return "0/5";
             return (total/count)+"/5";
         }
     }

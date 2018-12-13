@@ -1,59 +1,32 @@
 package ca.csci4100.uoit.project;
 
-import android.Manifest;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Criteria;
-import android.location.Geocoder;
-import android.location.Location;
+import android.support.v7.app.AppCompatActivity;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
+import android.location.Location;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.content.Intent;
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.osmdroid.config.Configuration;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 import java.util.Collections;
 import java.util.Comparator;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.net.URL;
 
 public class SearchPlacesActivity extends AppCompatActivity implements  LocationListener{
 
@@ -79,6 +52,7 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
     float distanceInKm;
     int count = 0;
     String url = "https://csci4100app.firebaseio.com/.json";
+    String jsonData = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,9 +113,6 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
 
     class DownloadSearchRestaurantsTask extends AsyncTask<String, Void, ArrayList<Restaurant>> {
         ArrayList<Restaurant> restaurants2 = new ArrayList<>();
-        String jsonData = "";
-
-
 
         @Override
         protected ArrayList<Restaurant> doInBackground(String... params) {
@@ -344,9 +315,30 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
         }
     }
     public String getWorldReview(String address){
-        return "TODO";
+        float total=0,count=0;
+        try {
+            JSONObject jObject= new JSONObject(jsonData);
+
+            Iterator<String> keys;
+
+            String key = "Reviews";
+            JSONObject getRestaurant = jObject.getJSONObject(key);
+            //System.out.println("reviews: "+getRestaurant.toString());
+            keys =  getRestaurant.keys();
+            while(keys.hasNext()) {
+                key=keys.next();
+                //System.out.println("reviews: " + getRestaurant.getJSONObject(key).get("address"));
+
+                if(address.equals(getRestaurant.getJSONObject(key).get("address"))){
+                    total+=Float.parseFloat(getRestaurant.getJSONObject(key).get("rating").toString());
+                    count+=1;
+                }
+            }
+        }
+        catch (org.json.JSONException j){
+            System.err.println(j);
+        }
+        if(count==0)return "0/5";
+        return (total/count)+"/5";
     }
-
 }
-
-
