@@ -13,8 +13,23 @@
  
  
  
+
  
- ### Recommend latitude and longtitude in device settings for nearby portion
+ 
+  ### Recommended user login
+  
+  Email: test@gmail.com
+  
+  password: password
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ ### Recommended latitude and longtitude in device settings for nearby portion
  
  Latitude  : 43.9459
  
@@ -23,7 +38,8 @@
  
  
  
- ### Recommend addresses and keywords to use in the search box to use for search portion
+ 
+ ### Recommended addresses and keywords to use in the search box to use for search portion
  
  1. 22 Good Road, Scarborough, ON M1C4G4
  
@@ -46,9 +62,14 @@
     - Late Night Food
    
  
+  ### Chat
  
           $ To test the chat please use two devices to communicate with each other
+          $ If you want to do a review, make an account or use the recommended user login
   
+  
+  
+
   
   
   
