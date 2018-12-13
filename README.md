@@ -25,7 +25,7 @@
  
  
  
-  Note: If you want to do a review, make an account or use the recommended user login
+  
  
  
  
@@ -35,9 +35,6 @@
  
  Longitude : -78.8967
  
- 
- 
- Note: If using chat, put sound up to hear the send sound effect when sending a message
  
  
  
@@ -68,6 +65,9 @@
  
           $ To test the chat please use two devices to communicate with each other
   
+  
+  
+  Note: If you want to do a review, make an account or use the recommended user login
   
   
   
