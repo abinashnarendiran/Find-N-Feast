@@ -152,7 +152,6 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
 
             }
         }
-        // TODO: handle the province select event
     }
 
 }
