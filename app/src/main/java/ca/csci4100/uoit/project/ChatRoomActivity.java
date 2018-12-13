@@ -31,7 +31,8 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     DatabaseReference ref;
     String temp;
-    MediaPlayer mp;
+
+    MediaPlayer sentSound;
 
     Context context = this;
 
@@ -48,12 +49,6 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         chatView.setMovementMethod(new ScrollingMovementMethod());
 
-        if(getSupportActionBar() != null)
-        {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-
         userEmail = getIntent().getExtras().get("userEmail").toString();
         roomName = getIntent().getExtras().get("roomName").toString();
 
@@ -61,7 +56,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         ref = FirebaseDatabase.getInstance().getReference("Chat").child(roomName);
 
-        mp = MediaPlayer.create(context, R.raw.sent);
+        sentSound = MediaPlayer.create(context, R.raw.sent);
 
         final Button sendButton = (Button) findViewById(R.id.sendButton);
 
@@ -69,13 +64,14 @@ public class ChatRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    if (mp.isPlaying()) {
-                        mp.stop();
-                        mp.release();
-                        mp = MediaPlayer.create(context, R.raw.sent);
+                    if (sentSound.isPlaying()) {
+                        sentSound.stop();
+                        sentSound.release();
+                        sentSound = MediaPlayer.create(context, R.raw.sent);
                     }
-                    mp.start();
-                } catch(Exception e) {
+                    sentSound.start();
+                }
+                catch(Exception e) {
                     e.printStackTrace();
                 }
                 send(v);
@@ -127,18 +123,23 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         HashMap<String, Object> messageInfo = new HashMap<>();
 
-        messageInfo.put("Email", userEmail);
-        messageInfo.put("Message", messageInput.getText().toString());
-        messageInfo.put("Time", timeStamp);
+        if (messageInput.getText().toString().isEmpty()) {
+            Toast.makeText(ChatRoomActivity.this,"Please enter a message", Toast.LENGTH_LONG).show();
+        }
+        else {
+            messageInfo.put("Email", userEmail);
+            messageInfo.put("Message", messageInput.getText().toString());
+            messageInfo.put("Time", timeStamp);
 
-        child.updateChildren(messageInfo).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(Exception e) {
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+            child.updateChildren(messageInfo).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(Exception e) {
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
 
-        messageInput.setText("");
+            messageInput.setText("");
+        }
     }
 
     public void updateChatView(DataSnapshot ss)

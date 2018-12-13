@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
             ((Button)findViewById(R.id.review_btn)).setAlpha(0.5f);
             ((Button)findViewById(R.id.chat_btn)).setClickable(false);
             ((Button)findViewById(R.id.chat_btn)).setAlpha(0.5f);
-            ((Button)findViewById(R.id.account_btn)).setClickable(false);
-            ((Button)findViewById(R.id.account_btn)).setAlpha(0.5f);
         }
         /*
         toolbar = (Toolbar) findViewById(R.id.toolbar);
