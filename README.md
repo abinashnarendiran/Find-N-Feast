@@ -12,6 +12,12 @@
  6. Run in emulator : Google Pixel 2 (Andord 8.1 with Google API) and above
  
  
+  ### Recommend user login
+  
+  Email: test@gmail.com
+  password: password
+ 
+ 
  
  
  ### Recommend latitude and longtitude in device settings for nearby portion
