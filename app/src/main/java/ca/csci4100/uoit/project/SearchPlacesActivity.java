@@ -101,7 +101,20 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
         ListView listView = (ListView)findViewById(R.id.search_places_listView);
         listView.setAdapter(restaurantAdapter);
     }
+    public void rate(View v){
+        Intent i = new Intent(this,reviewActivity.class);
 
+        String address="ERROR";
+
+        View a = ((ViewGroup) v.getParent().getParent()).getChildAt(1);//gets Address block
+        //View a = ((ViewGroup) v.getParent().getParent()).getChildAt(0);//gets name block
+        TextView t = (TextView) ((LinearLayout) a).getChildAt(0);
+
+        address=t.getText().toString();
+
+        i.putExtra("address",address);
+        this.startActivity(i);
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
