@@ -123,7 +123,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                 URL url = new URL(params[0]);
                 double latitude = Double.parseDouble(params[1]);
                 double longitude = Double.parseDouble(params[2]);
-
+                System.out.println(latitude+","+longitude);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 InputStream in = conn.getInputStream();
                 BufferedReader buffRead = new BufferedReader(new InputStreamReader(in));
@@ -144,14 +144,13 @@ public class NearbyPlacesActivity extends AppCompatActivity{
 
                 while (keys.hasNext()) {
                     String key = keys.next();
-                    System.out.println(key);
                     if(key.equals("Restaurants")){}else{continue;}
                     try{
                         JSONObject getRestaurant = jObject.getJSONObject(key);
                         System.out.println(getRestaurant.length());
                         for(int i = 1; i <= getRestaurant.length(); i++){
                             JSONObject restaurant_details;
-                            System.out.println("R"+i);
+                            //System.out.println("R"+i);
                             try {
 
                                 restaurant_details = getRestaurant.getJSONObject("Restaurant_"+i);
@@ -163,7 +162,6 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                 float[] results = new float[1];
                                 Location.distanceBetween(latitude2, longitude2, latitude, longitude, results);
                                 distance = Math.round(results[0]);
-                                System.out.println(distance+"\t"+restaurant_details.getString("restaurant_name"));
                                 if (distance <= 5000) {
 
                                     price_range = restaurant_details.getString("price_range");

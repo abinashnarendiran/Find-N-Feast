@@ -130,13 +130,14 @@ public class NearbyActivity extends AppCompatActivity implements LocationListene
             return;
         }
 
-        locManager.requestLocationUpdates(locationProvider, 1000, 0, this);
+        locManager.requestLocationUpdates(locationProvider, 10, 0, this);
     }
 
     @Override
     public void onActivityResult(int requestCode,
                                  int resultCode,
                                  Intent resultIntent) {
+
         if(requestCode == GET_RESULT_INTENT) {
             if(resultCode == Activity.RESULT_OK){
                 //correct password
@@ -170,5 +171,16 @@ public class NearbyActivity extends AppCompatActivity implements LocationListene
     public void onStatusChanged(String provider, int status, Bundle extras) {
         // ask user to enable, shut down, go without
         Log.i("App", "Provider (" + provider + ") status changed: " + status);
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        try {
+            latitude= locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude()+"";
+            longitude= locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude()+"";
+        }
+        catch (SecurityException s){
+            System.out.println(s);
+        }
     }
 }
