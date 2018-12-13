@@ -18,8 +18,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.io.FileOutputStream;
-
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     public Context context;
@@ -49,6 +47,11 @@ public class LoginActivity extends AppCompatActivity {
     private void sign(FirebaseUser user){
         Intent i = new Intent(context, SignUpActivity.class);
         i.putExtra("user",user);
+        this.startActivityForResult(i,SIGN_IN_VALUE);
+    }
+    public void guest(View v){
+        Intent i = new Intent(context, MainActivity.class);
+        i.putExtra("user",(FirebaseUser)null);
         this.startActivityForResult(i,SIGN_IN_VALUE);
     }
     public void signup(View view) {

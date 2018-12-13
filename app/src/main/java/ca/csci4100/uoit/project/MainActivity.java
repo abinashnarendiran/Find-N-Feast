@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.widget.TextView;
 import android.content.Intent;
 import android.widget.Toast;
@@ -52,9 +53,20 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUpToolbar();
-        this.user=(FirebaseUser) getIntent().getExtras().get("user");
-        System.out.println(user.getEmail()+" logged in");
-        ((TextView)findViewById(R.id.mainUserNameDisplay)).setText(user.getEmail());
+        if(user==null){
+            ((TextView) findViewById(R.id.mainUserNameDisplay)).setText("Guest");
+            ((Button)findViewById(R.id.review_btn)).setClickable(false);
+            ((Button)findViewById(R.id.review_btn)).setAlpha(0.5f);
+            ((Button)findViewById(R.id.chat_btn)).setClickable(false);
+            ((Button)findViewById(R.id.chat_btn)).setAlpha(0.5f);
+            ((Button)findViewById(R.id.account_btn)).setClickable(false);
+            ((Button)findViewById(R.id.account_btn)).setAlpha(0.5f);
+        }
+        else {
+            this.user = (FirebaseUser) getIntent().getExtras().get("user");
+            System.out.println(user.getEmail() + " logged in");
+            ((TextView) findViewById(R.id.mainUserNameDisplay)).setText(user.getEmail());
+        }
         /*
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

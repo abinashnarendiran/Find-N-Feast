@@ -182,7 +182,7 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                 longitude2 = restaurant_details.getDouble("longitude");
                             }
                             catch (org.json.JSONException j){
-                                break;
+                                continue;
                             }
 
                             float[] results = new float[1];

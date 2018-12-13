@@ -82,6 +82,16 @@
         android:text="@string/signup_button"
         android:textColor="@color/textColor2"/>
 
+    <Button
+        android:id="@+id/guestButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/button_color"
+        android:onClick="guest"
+        android:text="@string/guest_login"
+        android:textColor="@color/textColor2"/>
 
     <ImageButton
         android:id="@+id/button1"
