@@ -1,17 +1,17 @@
 package ca.csci4100.uoit.project;
 
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.text.SpannableString;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.content.Context;
 import android.widget.TextView;
+import android.view.ViewGroup;
+import android.content.Intent;
+import android.view.View;
+import android.net.Uri;
 
 import java.util.ArrayList;
 

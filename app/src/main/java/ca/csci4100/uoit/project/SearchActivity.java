@@ -143,7 +143,6 @@ public class SearchActivity extends AppCompatActivity {
                 toast.show();
             }
         }
-        // TODO: handle the province select event
     }
 
 

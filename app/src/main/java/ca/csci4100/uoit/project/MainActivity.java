@@ -1,26 +1,23 @@
 package ca.csci4100.uoit.project;
 
-import android.content.Context;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.view.GravityCompat;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
 import android.widget.TextView;
+import android.content.Context;
 import android.content.Intent;
+import android.widget.Button;
 import android.widget.Toast;
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.View;
+import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity /* implements NavigationView.OnNavigationItemSelectedListener*/ {
 
@@ -35,6 +32,7 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
         String line = "";
         try {
             BufferedReader br=new BufferedReader(new InputStreamReader(openFileInput("data")));
+            System.out.println("local data:");
             while((line=br.readLine())!=null){
                 //Toast.makeText(MainActivity.this, line, Toast.LENGTH_LONG).show();
                 System.out.println(line);
@@ -42,7 +40,8 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
 
         }
         catch (IOException e){
-            Toast.makeText(MainActivity.this, e+"", Toast.LENGTH_LONG).show();
+            //Toast.makeText(MainActivity.this, e+"", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "no local data", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -76,12 +75,8 @@ public class MainActivity extends AppCompatActivity /* implements NavigationView
         mAuth = FirebaseAuth.getInstance();
         context = this;
 
-        if (savedInstanceState == null) {
-            //navigationView.setCheckedItem(R.id.nearby);
-        }
 
         getUserData();
-        //navigationView.setNavigationItemSelectedListener(this);
     }
 
 

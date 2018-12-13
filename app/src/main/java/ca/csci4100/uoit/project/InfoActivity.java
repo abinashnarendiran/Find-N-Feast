@@ -1,10 +1,8 @@
 package ca.csci4100.uoit.project;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
+import android.os.Bundle;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -15,11 +13,6 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public void backInfo(View view) {
-        /*Intent backInfoIntent = new Intent(
-                InfoActivity.this,
-                LoginActivity.class
-        );
-        startActivity(backInfoIntent);*/
         finish();
     }
 }

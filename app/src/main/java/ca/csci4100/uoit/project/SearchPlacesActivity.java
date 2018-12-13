@@ -160,8 +160,6 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
                     String key = keys.next();
                     try{
                         JSONObject getRestaurant = jObject.getJSONObject(key);
-                        //Log.v("Details", getRestaurant.toString());
-                        //Log.d("Size", String.valueOf(getRestaurant.length()));
                         for(int i = 1; i <= getRestaurant.length(); i++){
 
                             JSONObject restaurant_details = getRestaurant.getJSONObject("Restaurant_"+i);
@@ -337,11 +335,9 @@ public class SearchPlacesActivity extends AppCompatActivity implements  Location
 
             String key = "Reviews";
             JSONObject getRestaurant = jObject.getJSONObject(key);
-            //System.out.println("reviews: "+getRestaurant.toString());
             keys =  getRestaurant.keys();
             while(keys.hasNext()) {
                 key=keys.next();
-                //System.out.println("reviews: " + getRestaurant.getJSONObject(key).get("address"));
 
                 if(address.equals(getRestaurant.getJSONObject(key).get("address"))){
                     total+=Float.parseFloat(getRestaurant.getJSONObject(key).get("rating").toString());

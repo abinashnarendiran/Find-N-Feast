@@ -123,7 +123,6 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                 URL url = new URL(params[0]);
                 double latitude = Double.parseDouble(params[1]);
                 double longitude = Double.parseDouble(params[2]);
-                System.out.println(latitude+","+longitude);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 InputStream in = conn.getInputStream();
                 BufferedReader buffRead = new BufferedReader(new InputStreamReader(in));
@@ -145,10 +144,8 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                     if(key.equals("Restaurants")){}else{continue;}
                     try{
                         JSONObject getRestaurant = jObject.getJSONObject(key);
-                        System.out.println(getRestaurant.length());
                         for(int i = 1; i <= getRestaurant.length(); i++){
                             JSONObject restaurant_details;
-                            //System.out.println("R"+i);
                             try {
 
                                 restaurant_details = getRestaurant.getJSONObject("Restaurant_"+i);
@@ -228,7 +225,6 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                             Restaurant restaurant = new Restaurant(count ,restaurant_name, address, description, type,
                                                     price_range, phone_number, rating,sqlRating,worldRating, hours2, website, image, distanceInKm,
                                                     latitude2, longitude2);
-                                            System.out.println(restaurant_name+"\t"+distanceInKm);
 
                                             Log.d("Restaurant", String.valueOf(restaurant));
 
@@ -241,12 +237,12 @@ public class NearbyPlacesActivity extends AppCompatActivity{
                                 }
                             }
                             catch (org.json.JSONException j){
-                                System.out.println(j);
+                                System.err.println(j);
                             }
                         }
                     }catch(JSONException e) {
-                        e.printStackTrace();
-                        System.out.println(e);
+                        //e.printStackTrace();
+                        System.err.println(e);
                     }
                 }
 
@@ -299,11 +295,9 @@ public class NearbyPlacesActivity extends AppCompatActivity{
 
                 String key = "Reviews";
                 JSONObject getRestaurant = jObject.getJSONObject(key);
-                //System.out.println("reviews: "+getRestaurant.toString());
                 keys =  getRestaurant.keys();
                 while(keys.hasNext()) {
                     key=keys.next();
-                    //System.out.println("reviews: " + getRestaurant.getJSONObject(key).get("address"));
 
                     if(address.equals(getRestaurant.getJSONObject(key).get("address"))){
                         total+=Float.parseFloat(getRestaurant.getJSONObject(key).get("rating").toString());
