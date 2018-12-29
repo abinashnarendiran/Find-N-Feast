@@ -31,6 +31,8 @@
  
  ### Recommended latitude and longtitude in device settings for nearby portion
  
+ (Limited data used)
+ 
  Latitude  : 43.9459
  
  Longitude : -78.8967
@@ -40,6 +42,8 @@
  
  
  ### Recommended addresses and keywords to use in the search box to use for search portion
+ 
+ (Limited data used)
  
  1. 22 Good Road, Scarborough, ON M1C4G4
  
